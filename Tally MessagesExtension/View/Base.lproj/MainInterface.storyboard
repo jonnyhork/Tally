@@ -24,8 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
-                                <rect key="frame" x="116" y="254" width="88.5" height="20.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcom To Tally" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
+                                <rect key="frame" x="98.5" y="254" width="123.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cam-jn-A4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="194.75262368815595"/>
+            <point key="canvasLocation" x="774" y="195"/>
         </scene>
         <!--Create Poll View Controller-->
         <scene sceneID="6Xo-aE-2uU">
@@ -152,6 +152,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRU-c5-6FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1540" y="194.75262368815595"/>
+        </scene>
+        <!--Voting View Controller-->
+        <scene sceneID="VFg-Yh-4au">
+            <objects>
+                <viewController storyboardIdentifier="VotingViewController" id="6bd-aC-yjb" customClass="VotingViewController" customModule="Tally_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3ug-OP-DQp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VotingVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
+                                <rect key="frame" x="146.5" y="27" width="83.5" height="23"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOT-9c-gl7" userLabel="Option Button Container">
+                                <rect key="frame" x="16" y="85" width="343" height="188"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NOO-NA-h7m">
+                                        <rect key="frame" x="8" y="8" width="200" height="119"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-VZ-zcG">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="33"/>
+                                                <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17X-eJ-AZr">
+                                                <rect key="frame" x="0.0" y="43" width="200" height="33"/>
+                                                <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiv-R2-qRN">
+                                                <rect key="frame" x="0.0" y="86" width="200" height="33"/>
+                                                <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
+                                        <rect key="frame" x="145" y="135" width="63" height="35"/>
+                                        <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="63" id="vHk-L6-tIv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createNewPollButtonPressed:" destination="1pk-XO-mI2" eventType="touchUpInside" id="HKg-6a-Qzy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="NOO-NA-h7m" secondAttribute="bottom" constant="8" symbolic="YES" id="DKZ-gr-EDU"/>
+                                    <constraint firstItem="HEc-3a-aoO" firstAttribute="trailing" secondItem="NOO-NA-h7m" secondAttribute="trailing" id="Vr8-M5-OWX"/>
+                                    <constraint firstAttribute="trailing" secondItem="NOO-NA-h7m" secondAttribute="trailing" constant="135" id="WBI-Et-UPc"/>
+                                    <constraint firstItem="NOO-NA-h7m" firstAttribute="top" secondItem="xOT-9c-gl7" secondAttribute="topMargin" id="haa-RZ-Q1J"/>
+                                    <constraint firstItem="NOO-NA-h7m" firstAttribute="leading" secondItem="xOT-9c-gl7" secondAttribute="leadingMargin" id="v9f-ub-nRt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xOT-9c-gl7" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="85" id="2Av-Dv-1JG"/>
+                            <constraint firstItem="xOT-9c-gl7" firstAttribute="trailing" secondItem="3ug-OP-DQp" secondAttribute="trailingMargin" id="AnT-bc-u1Q"/>
+                            <constraint firstItem="0qT-6P-F3f" firstAttribute="bottom" secondItem="xOT-9c-gl7" secondAttribute="bottom" constant="394" id="UvA-4X-zwR"/>
+                            <constraint firstItem="xOT-9c-gl7" firstAttribute="centerX" secondItem="RKW-Ic-wUl" secondAttribute="centerX" id="bqJ-bo-ahy"/>
+                            <constraint firstItem="xOT-9c-gl7" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="35" id="kGG-AX-GDd"/>
+                            <constraint firstItem="xOT-9c-gl7" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" id="shY-PY-twW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0qT-6P-F3f"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqo-hr-gpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2317.5999999999999" y="193.85307346326837"/>
         </scene>
     </scenes>
 </document>
