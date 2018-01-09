@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="-93" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--Compact View Controller-->
         <scene sceneID="dF8-at-3BR">
             <objects>
-                <viewController id="1pk-XO-mI2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompactViewController" id="1pk-XO-mI2" customClass="CompactViewController" customModule="Tally_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gwu-JE-0A8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="772" y="194.75262368815595"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Poll View Controller-->
         <scene sceneID="6Xo-aE-2uU">
             <objects>
-                <viewController id="uTu-dJ-Shh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePollViewController" id="uTu-dJ-Shh" customClass="CreatePollViewController" customModule="Tally_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b5D-AM-PMf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,6 +11,60 @@ import Messages
 import ChameleonFramework
 
 class MessagesViewController: MSMessagesAppViewController {
+    
+    // MARK: - View Controller Selection
+/************************************************************************/
+   
+    func presentViewControlller(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
+        
+        var controller: UIViewController!
+        
+        // remove any existing controllers
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        addChildViewController(controller)
+        
+        // constraints and view setup
+        controller.view.frame = self.view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(controller.view)
+        
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    }
+    
+    private func instantiateCompactVC() -> UIViewController {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "CompactViewController") as? CompactViewController else {
+            fatalError("Can't instantiate CompactViewController")
+        }
+        return controller
+    }
+    
+    private func instantiateCreatePollVC() -> UIViewController {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "CreatePollViewController") as? CreatePollViewController else {
+            fatalError("Can'instantiate CreatePollViewController")
+        }
+        return controller
+    }
+    
+    private func instantiateVotingVC() -> UIViewController {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
+            fatalError("Can'instantiate VotingViewController")
+        }
+        return controller
+    }
+    
+    
+    // MARK: - ViewDidLoad
+/************************************************************************/
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +76,8 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     // MARK: - Conversation Handling
+/************************************************************************/
+
     
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
