@@ -12,12 +12,20 @@ import ChameleonFramework
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    // MARK: - View Controller Selection
+    // MARK:  View Controller Selection
 /************************************************************************/
    
     func presentViewControlller(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
         
         var controller: UIViewController!
+        
+        if presentationStyle == .compact {
+            controller = instantiateCompactVC()
+        } else if self.activeConversation != nil && presentationStyle == .expanded {
+            controller = instantiateVotingVC()
+        } else {
+            controller = instantiateCreatePollVC()
+        }
         
         // remove any existing controllers
         for child in childViewControllers {
@@ -39,30 +47,34 @@ class MessagesViewController: MSMessagesAppViewController {
         
         controller.didMove(toParentViewController: self)
     }
+   
+    /* -------------------------------------------------------------------- */
+    // MARK: - Instantiate VC Methods
+    // Methods for instantiating a specific View Controller
     
     private func instantiateCompactVC() -> UIViewController {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "CompactViewController") as? CompactViewController else {
+        guard let compactVC = self.storyboard?.instantiateViewController(withIdentifier: "CompactViewController") as? CompactViewController else {
             fatalError("Can't instantiate CompactViewController")
         }
-        return controller
+        return compactVC
     }
     
     private func instantiateCreatePollVC() -> UIViewController {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "CreatePollViewController") as? CreatePollViewController else {
+        guard let createPollVC = self.storyboard?.instantiateViewController(withIdentifier: "CreatePollViewController") as? CreatePollViewController else {
             fatalError("Can'instantiate CreatePollViewController")
         }
-        return controller
+        return createPollVC
     }
     
     private func instantiateVotingVC() -> UIViewController {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
+        guard let votingVC = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
             fatalError("Can'instantiate VotingViewController")
         }
-        return controller
+        return votingVC
     }
     
     
-    // MARK: - ViewDidLoad
+    // MARK:  ViewDidLoad
 /************************************************************************/
 
     override func viewDidLoad() {
@@ -75,7 +87,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Conversation Handling
+    // MARK:  Conversation Handling
 /************************************************************************/
 
     
@@ -84,6 +96,8 @@ class MessagesViewController: MSMessagesAppViewController {
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
+        
+        presentViewControlller(for: conversation, for: self.presentationStyle)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -117,6 +131,11 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called before the extension transitions to a new presentation style.
     
         // Use this method to prepare for the change in presentation style.
+        
+        guard let conversation = self.activeConversation else {
+            fatalError("No active conversation found")
+        }
+        presentViewControlller(for: conversation, for: presentationStyle)
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
