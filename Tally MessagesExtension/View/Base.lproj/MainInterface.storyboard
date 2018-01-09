@@ -53,9 +53,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-mr-T9f">
-                                <rect key="frame" x="127" y="89" width="122" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-mr-T9f">
+                                <rect key="frame" x="117" y="86" width="141" height="35"/>
                                 <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <state key="normal" title="Create a Poll!">
@@ -67,6 +66,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53409618139266968" green="0.59629547595977783" blue="0.81492191553115845" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="top" secondItem="Kbv-ke-qeN" secondAttribute="top" constant="66" id="559-Ei-ZXf"/>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="leading" secondItem="Kbv-ke-qeN" secondAttribute="leading" constant="117" id="hb4-lr-gw1"/>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="centerX" secondItem="gwu-JE-0A8" secondAttribute="centerX" id="zQz-pl-hjw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Kbv-ke-qeN"/>
                     </view>
                 </viewController>
@@ -85,38 +89,53 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtO-TF-UM7" userLabel="Options Container">
                                 <rect key="frame" x="16" y="60" width="343" height="186"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 1" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-YJ-slk">
-                                        <rect key="frame" x="8" y="0.0" width="212" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EEm-1c-CPP">
+                                        <rect key="frame" x="10" y="38" width="212" height="110"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 1" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Gg-YJ-slk">
+                                                <rect key="frame" x="0.0" y="0.0" width="212" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="212" id="zad-16-fIw"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2PF-Dp-Up9">
+                                                <rect key="frame" x="0.0" y="40" width="212" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 3" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0o3-4Y-fkB">
+                                                <rect key="frame" x="0.0" y="80" width="212" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljU-4w-Hw5">
+                                        <rect key="frame" x="159" y="156" width="63" height="35"/>
+                                        <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="212" id="aco-cd-Z6x"/>
+                                            <constraint firstAttribute="height" constant="35" id="2ym-xv-Nhl"/>
+                                            <constraint firstAttribute="width" constant="63" id="bxq-Tg-Fzz"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2PF-Dp-Up9">
-                                        <rect key="frame" x="8" y="38" width="212" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Option 3" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0o3-4Y-fkB">
-                                        <rect key="frame" x="8" y="78" width="212" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createNewPollButtonPressed:" destination="1pk-XO-mI2" eventType="touchUpInside" id="2eT-4Y-LcK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="2PF-Dp-Up9" firstAttribute="top" secondItem="9Gg-YJ-slk" secondAttribute="bottom" constant="8" symbolic="YES" id="3GL-TX-V8I"/>
-                                    <constraint firstItem="0o3-4Y-fkB" firstAttribute="leading" secondItem="rtO-TF-UM7" secondAttribute="leadingMargin" id="3nT-sB-TxM"/>
-                                    <constraint firstItem="9Gg-YJ-slk" firstAttribute="trailing" secondItem="2PF-Dp-Up9" secondAttribute="trailing" id="7wL-9P-Wns"/>
-                                    <constraint firstItem="0o3-4Y-fkB" firstAttribute="leading" secondItem="2PF-Dp-Up9" secondAttribute="leading" id="DJd-zr-9xN"/>
-                                    <constraint firstItem="0o3-4Y-fkB" firstAttribute="top" secondItem="2PF-Dp-Up9" secondAttribute="bottom" constant="10" id="FAG-k2-qec"/>
-                                    <constraint firstItem="0o3-4Y-fkB" firstAttribute="trailing" secondItem="2PF-Dp-Up9" secondAttribute="trailing" id="KR8-C8-hbY"/>
-                                    <constraint firstItem="0o3-4Y-fkB" firstAttribute="centerY" secondItem="rtO-TF-UM7" secondAttribute="centerY" id="UIT-vX-JoE"/>
-                                    <constraint firstItem="9Gg-YJ-slk" firstAttribute="leading" secondItem="2PF-Dp-Up9" secondAttribute="leading" id="k7B-hn-uVM"/>
+                                    <constraint firstItem="EEm-1c-CPP" firstAttribute="centerY" secondItem="rtO-TF-UM7" secondAttribute="centerY" id="OnQ-FA-F71"/>
+                                    <constraint firstItem="EEm-1c-CPP" firstAttribute="leading" secondItem="rtO-TF-UM7" secondAttribute="leading" constant="10" id="PAJ-5W-OAf"/>
+                                    <constraint firstItem="ljU-4w-Hw5" firstAttribute="trailing" secondItem="EEm-1c-CPP" secondAttribute="trailing" id="h2p-2v-hFK"/>
+                                    <constraint firstItem="ljU-4w-Hw5" firstAttribute="top" secondItem="EEm-1c-CPP" secondAttribute="bottom" constant="8" id="mNu-fo-IJU"/>
                                 </constraints>
                             </view>
                         </subviews>
