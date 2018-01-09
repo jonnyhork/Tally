@@ -10,7 +10,7 @@ import UIKit
 import Messages
 import ChameleonFramework
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate {
     
     var session: MSSession?
     
@@ -61,6 +61,7 @@ class MessagesViewController: MSMessagesAppViewController {
         guard let compactVC = self.storyboard?.instantiateViewController(withIdentifier: "CompactViewController") as? CompactViewController else {
             fatalError("Can't instantiate CompactViewController")
         }
+        compactVC.delegate = self
         return compactVC
     }
     
@@ -78,6 +79,12 @@ class MessagesViewController: MSMessagesAppViewController {
         return votingVC
     }
     
+    //  MARK: Delegate Methods
+/************************************************************************/
+    // CompactVC delegate method
+    func didShowCreatePoll() {
+        requestPresentationStyle(.expanded)
+    }
     
     // MARK:  ViewDidLoad
 /************************************************************************/

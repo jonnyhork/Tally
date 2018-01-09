@@ -8,8 +8,18 @@
 
 import UIKit
 
+protocol CompactViewControllerDelegate {
+    func didShowCreatePoll()
+}
+
 class CompactViewController: UIViewController {
 
+    var delegate: CompactViewControllerDelegate?
+    
+  
+    @IBAction func createNewPollButtonPressed(_ sender: UIButton) {
+self.delegate?.didShowCreatePoll()    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
