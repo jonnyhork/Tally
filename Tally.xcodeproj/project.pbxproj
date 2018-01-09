@@ -16,6 +16,9 @@
 		F4506F37200432D600E761C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4506F35200432D600E761C4 /* MainInterface.storyboard */; };
 		F4506F39200432D600E761C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4506F38200432D600E761C4 /* Assets.xcassets */; };
 		F4615820200511D90032B231 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461581F200511D90032B231 /* Poll.swift */; };
+		F4ADF08420053AED00756037 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08320053AED00756037 /* CompactViewController.swift */; };
+		F4ADF08620053B0C00756037 /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08520053B0C00756037 /* CreatePollViewController.swift */; };
+		F4ADF08820053B7B00756037 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08720053B7B00756037 /* VotingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		F4506F3A200432D600E761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F461581E200511D90032B231 /* Tally-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tally-Bridging-Header.h"; sourceTree = "<group>"; };
 		F461581F200511D90032B231 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		F4ADF08320053AED00756037 /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
+		F4ADF08520053B0C00756037 /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
+		F4ADF08720053B7B00756037 /* VotingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
 		FDDC636864AADC71DFDB12F6 /* Pods-Tally MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally MessagesExtension/Pods-Tally MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				F4506F33200432D600E761C4 /* MessagesViewController.swift */,
+				F4ADF08320053AED00756037 /* CompactViewController.swift */,
+				F4ADF08520053B0C00756037 /* CreatePollViewController.swift */,
+				F4ADF08720053B7B00756037 /* VotingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,8 +376,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4ADF08420053AED00756037 /* CompactViewController.swift in Sources */,
 				F4615820200511D90032B231 /* Poll.swift in Sources */,
 				F4506F34200432D600E761C4 /* MessagesViewController.swift in Sources */,
+				F4ADF08620053B0C00756037 /* CreatePollViewController.swift in Sources */,
+				F4ADF08820053B7B00756037 /* VotingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
