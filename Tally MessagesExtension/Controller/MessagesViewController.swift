@@ -8,9 +8,9 @@
 
 import UIKit
 import Messages
+import ChameleonFramework
 
 class MessagesViewController: MSMessagesAppViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

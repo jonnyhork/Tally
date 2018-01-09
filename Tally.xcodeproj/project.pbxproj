@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38AD4716B4D079EA9570C48A /* Pods_Tally_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB53CEDA4EDC16FF814C6A47 /* Pods_Tally_MessagesExtension.framework */; };
+		D6F90B744DA53BFD4C8D21F8 /* Pods_Tally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2A6E47C734474E4FB8673A /* Pods_Tally.framework */; };
 		F4506F25200432D600E761C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4506F24200432D600E761C4 /* Assets.xcassets */; };
 		F4506F2C200432D600E761C4 /* Tally MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F4506F2B200432D600E761C4 /* Tally MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F4506F31200432D600E761C4 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4506F30200432D600E761C4 /* Messages.framework */; };
 		F4506F34200432D600E761C4 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4506F33200432D600E761C4 /* MessagesViewController.swift */; };
 		F4506F37200432D600E761C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4506F35200432D600E761C4 /* MainInterface.storyboard */; };
 		F4506F39200432D600E761C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4506F38200432D600E761C4 /* Assets.xcassets */; };
+		F4615820200511D90032B231 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461581F200511D90032B231 /* Poll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C21791254B5458FD05A981B /* Pods-Tally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.release.xcconfig"; sourceTree = "<group>"; };
+		1E2A6E47C734474E4FB8673A /* Pods_Tally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC1672DE0177B6E6015CA4F /* Pods-Tally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.debug.xcconfig"; sourceTree = "<group>"; };
+		CB53CEDA4EDC16FF814C6A47 /* Pods_Tally_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tally_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFC8EAFEEE3156DAEF669E1 /* Pods-Tally MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tally MessagesExtension/Pods-Tally MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F4506F21200432D600E761C4 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4506F24200432D600E761C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4506F26200432D600E761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,20 +57,43 @@
 		F4506F36200432D600E761C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F4506F38200432D600E761C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4506F3A200432D600E761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F461581E200511D90032B231 /* Tally-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tally-Bridging-Header.h"; sourceTree = "<group>"; };
+		F461581F200511D90032B231 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		FDDC636864AADC71DFDB12F6 /* Pods-Tally MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally MessagesExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally MessagesExtension/Pods-Tally MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		546ED93F4F5F8624F34FC188 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6F90B744DA53BFD4C8D21F8 /* Pods_Tally.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4506F28200432D600E761C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F4506F31200432D600E761C4 /* Messages.framework in Frameworks */,
+				38AD4716B4D079EA9570C48A /* Pods_Tally_MessagesExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7891D43BC71C090B982B5359 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BC1672DE0177B6E6015CA4F /* Pods-Tally.debug.xcconfig */,
+				0C21791254B5458FD05A981B /* Pods-Tally.release.xcconfig */,
+				FDDC636864AADC71DFDB12F6 /* Pods-Tally MessagesExtension.debug.xcconfig */,
+				EFFC8EAFEEE3156DAEF669E1 /* Pods-Tally MessagesExtension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F4506F1A200432D600E761C4 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +101,7 @@
 				F4506F32200432D600E761C4 /* Tally MessagesExtension */,
 				F4506F2F200432D600E761C4 /* Frameworks */,
 				F4506F22200432D600E761C4 /* Products */,
+				7891D43BC71C090B982B5359 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				F4506F30200432D600E761C4 /* Messages.framework */,
+				1E2A6E47C734474E4FB8673A /* Pods_Tally.framework */,
+				CB53CEDA4EDC16FF814C6A47 /* Pods_Tally_MessagesExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,12 +136,38 @@
 		F4506F32200432D600E761C4 /* Tally MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F4506F33200432D600E761C4 /* MessagesViewController.swift */,
-				F4506F35200432D600E761C4 /* MainInterface.storyboard */,
+				F461581B20050EBC0032B231 /* Model */,
+				F461581C20050ECD0032B231 /* View */,
+				F461581D20050ED70032B231 /* Controller */,
 				F4506F38200432D600E761C4 /* Assets.xcassets */,
 				F4506F3A200432D600E761C4 /* Info.plist */,
 			);
 			path = "Tally MessagesExtension";
+			sourceTree = "<group>";
+		};
+		F461581B20050EBC0032B231 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F461581F200511D90032B231 /* Poll.swift */,
+				F461581E200511D90032B231 /* Tally-Bridging-Header.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F461581C20050ECD0032B231 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4506F35200432D600E761C4 /* MainInterface.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F461581D20050ED70032B231 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4506F33200432D600E761C4 /* MessagesViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,8 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4506F41200432D600E761C4 /* Build configuration list for PBXNativeTarget "Tally" */;
 			buildPhases = (
+				D74154EE3309BB92DB514A6E /* [CP] Check Pods Manifest.lock */,
 				F4506F1F200432D600E761C4 /* Resources */,
 				F4506F40200432D600E761C4 /* Embed App Extensions */,
+				546ED93F4F5F8624F34FC188 /* Frameworks */,
+				E5ED232498AB723F5AFB7DF7 /* [CP] Embed Pods Frameworks */,
+				5972DBF20E7E9490434E777B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4506F3D200432D600E761C4 /* Build configuration list for PBXNativeTarget "Tally MessagesExtension" */;
 			buildPhases = (
+				C7B07866B73558F74081D572 /* [CP] Check Pods Manifest.lock */,
 				F4506F27200432D600E761C4 /* Sources */,
 				F4506F28200432D600E761C4 /* Frameworks */,
 				F4506F29200432D600E761C4 /* Resources */,
+				A089C010D5FA1C9C386D7849 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +225,7 @@
 				TargetAttributes = {
 					F4506F20200432D600E761C4 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					F4506F2A200432D600E761C4 = {
@@ -206,11 +273,101 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5972DBF20E7E9490434E777B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tally/Pods-Tally-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A089C010D5FA1C9C386D7849 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tally MessagesExtension/Pods-Tally MessagesExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7B07866B73558F74081D572 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tally MessagesExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D74154EE3309BB92DB514A6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tally-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5ED232498AB723F5AFB7DF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Tally/Pods-Tally-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tally/Pods-Tally-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F4506F27200432D600E761C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4615820200511D90032B231 /* Poll.swift in Sources */,
 				F4506F34200432D600E761C4 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +396,7 @@
 /* Begin XCBuildConfiguration section */
 		F4506F3B200432D600E761C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDDC636864AADC71DFDB12F6 /* Pods-Tally MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -296,6 +454,7 @@
 		};
 		F4506F3C200432D600E761C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFFC8EAFEEE3156DAEF669E1 /* Pods-Tally MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -346,6 +505,7 @@
 		};
 		F4506F3E200432D600E761C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDDC636864AADC71DFDB12F6 /* Pods-Tally MessagesExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +522,7 @@
 		};
 		F4506F3F200432D600E761C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFFC8EAFEEE3156DAEF669E1 /* Pods-Tally MessagesExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
@@ -378,14 +539,19 @@
 		};
 		F4506F42200432D600E761C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BC1672DE0177B6E6015CA4F /* Pods-Tally.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S3FH4TEL9;
 				INFOPLIST_FILE = Tally/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JonnyHork.Tally;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tally MessagesExtension/Model/Tally-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -393,14 +559,18 @@
 		};
 		F4506F43200432D600E761C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C21791254B5458FD05A981B /* Pods-Tally.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S3FH4TEL9;
 				INFOPLIST_FILE = Tally/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JonnyHork.Tally;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tally MessagesExtension/Model/Tally-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
