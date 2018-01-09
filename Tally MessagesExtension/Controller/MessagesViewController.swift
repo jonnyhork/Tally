@@ -12,20 +12,25 @@ import ChameleonFramework
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    var session: MSSession?
+    
+    
     // MARK:  View Controller Selection
 /************************************************************************/
    
-    func presentViewControlller(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
+    func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
         
         var controller: UIViewController!
         
         if presentationStyle == .compact {
             controller = instantiateCompactVC()
-        } else if self.activeConversation != nil && presentationStyle == .expanded {
+        } else if (session != nil) && presentationStyle == .expanded {
             controller = instantiateVotingVC()
         } else {
             controller = instantiateCreatePollVC()
         }
+        
+
         
         // remove any existing controllers
         for child in childViewControllers {
@@ -97,7 +102,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Use this method to configure the extension and restore previously stored state.
         
-        presentViewControlller(for: conversation, for: self.presentationStyle)
+       presentViewController(for: conversation, for: self.presentationStyle)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -133,9 +138,10 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to prepare for the change in presentation style.
         
         guard let conversation = self.activeConversation else {
-            fatalError("No active conversation found")
+            fatalError("No conversation found")
         }
-        presentViewControlller(for: conversation, for: presentationStyle)
+        
+        presentViewController(for: conversation, for: presentationStyle)
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
