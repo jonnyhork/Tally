@@ -13,18 +13,32 @@ import ChameleonFramework
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate {
     
     var session: MSSession?
+    var currentConversation: MSConversation?
     var poll = Poll()
     
     // MARK: Message Construction
 /************************************************************************/
     
     func prepareURL() -> URL {
+        
         var components = URLComponents()
        
         return components.url!
     }
     
-    func decodeURL(with url: URL){
+    func decodeURL(with url: URL) {
+    
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            fatalError("There are no components in the message")
+        }
+        
+        for choice in components.queryItems! {
+            poll.addOption(toPoll: choice.name)
+            
+            choice.value?.split(separator: ",").forEach { voter in
+                poll.addVote(to: choice.name, by: String(voter))
+            }
+        }
         
     }
     
