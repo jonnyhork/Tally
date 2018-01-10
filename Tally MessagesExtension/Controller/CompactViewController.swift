@@ -8,6 +8,8 @@
 
 import UIKit
 import Messages
+import ChameleonFramework
+
 
 protocol CompactViewControllerDelegate {
     func didShowCreatePoll()

@@ -16,6 +16,9 @@
  */
 
 import UIKit
+import Messages
+import ChameleonFramework
+
 
 class VotingViewController: MSMessagesAppViewController {
 
