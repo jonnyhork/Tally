@@ -6,7 +6,7 @@
 //  Copyright © 2018 G62-Jonny Hork. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Poll {
     // list is a dictionary with option title as keys, a set<String> as values, representing votes
@@ -30,3 +30,12 @@ class Poll {
         return (list[optionText.lowercased()]?.count) ?? 0
     }
 }
+
+//extension Poll: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let currentlySelected = self.currentlySelectedOption {
+//            currentlySelectedOption = indexPath.row
+//        }
+//    }
+//}
+

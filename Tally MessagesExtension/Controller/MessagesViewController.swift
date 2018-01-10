@@ -12,17 +12,22 @@ import ChameleonFramework
 
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate {
     
+
     var session: MSSession?
     var currentConversation: MSConversation?
     var poll = Poll()
     
-    // MARK: Message Construction
+    // MARK: - Message Construction
 /************************************************************************/
     
     func prepareURL() -> URL {
         
         var components = URLComponents()
-       
+
+        components.queryItems = poll.list.map { option in
+            URLQueryItem(name: option.key , value: option.value.joined(separator: ","))
+        }
+        
         return components.url!
     }
     
@@ -39,13 +44,30 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 poll.addVote(to: choice.name, by: String(voter))
             }
         }
+        dump(poll, name: "Sate of Poll in decodeURL", indent: 2)
+    }
+    
+    func prepareMessage(with url: URL) {
+        if let conversation: MSConversation = activeConversation {
+            
+            let layout = MSMessageTemplateLayout()
+            layout.caption = "Test IM App!"
+            layout.subcaption = "Go Jonny"
+            
+            let message = MSMessage()
+            message.layout = layout
+            message.url = prepareURL()
+            
+            conversation.insert(message, completionHandler: { (error: NSError?) in
+                print(error!)
+                } as? (Error?) -> Void)
+        }
+        
+        requestPresentationStyle(.compact)
         
     }
     
-    func prepareMessage(with url: URL){
-        
-    }
-    //  MARK: Delegate Methods
+    //  MARK: - Delegate Methods
 /**************************************************************************************************************************/
     // CompactVC delegate method
     func didPressCreatePoll() {
@@ -55,15 +77,14 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // CreatePollVC delegate method
     func newPollCreated(pollOptions: [UITextField]) {
         // build up the poll obj with the choices passed in
-
         for option in pollOptions {
             print("User input Choice: ", option.text!)
             poll.addOption(toPoll: option.text!)
         }
-        dump(poll, name: "Sate of Poll", indent: 2)
+        dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
-    // MARK: Updating the UI Methods
+    // MARK: - Updating the UI Methods
 /**************************************************************************************************************************/
     func makeButton(choice: String) -> UIButton {
         let button = UIButton(type: .roundedRect)
@@ -78,10 +99,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // User taps their choice and adds a vote
     @objc func userChoiceButtonPressed(_ sender: UIButton) {
         print(sender.currentTitle!)
-        //        newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
+        //newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
     }
     
-    // MARK:  View Controller Selection
+    // MARK: - View Controller Selection
 /**************************************************************************************************************************/
    
     func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
@@ -92,7 +113,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         if presentationStyle == .compact {
             controller = instantiateCompactVC()
         } else if (session != nil) && presentationStyle == .expanded {
-            controller = instantiateVotingVC()
+            controller = instantiateVotingVC(with: poll)
         } else {
             controller = instantiateCreatePollVC()
         }
@@ -138,15 +159,24 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         return createPollVC
     }
     
-    private func instantiateVotingVC() -> UIViewController {
+    private func instantiateVotingVC(with: Poll) -> UIViewController {
         guard let votingVC = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
             fatalError("Can'instantiate VotingViewController")
         }
+//        votingVC.delegate = self
+            votingVC.poll = poll
+        
+        /*
+         this is worth's do code to handle adding a vote. 
+        votingVC.voteAction = { [weak self] newPoll in
+            // do thing with poll
+        }
+        */
         return votingVC
     }
     
  
-    // MARK:  ViewDidLoad
+    // MARK: - ViewDidLoad
 /**********************************************************************************************************************/
 
     override func viewDidLoad() {
@@ -159,7 +189,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK:  Conversation Handling
+    // MARK: - Conversation Handling
 /**********************************************************************************************************************/
 
     

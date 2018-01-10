@@ -19,14 +19,31 @@ import UIKit
 import Messages
 import ChameleonFramework
 
+//protocol votingViewControllerDelegate: class {
+//    func instantiateVotingVC(with: Poll) -> UIViewController
+//}
+
 
 class VotingViewController: MSMessagesAppViewController {
 
-    // MARK: Updating the UI Methods
+    // this is where I will have to pass the current state of the poll
+    var poll: Poll?
+//    weak var delegate: votingViewControllerDelegate?
+    /*
+     var voteAction: (Poll) -> Void = { _ in } // Worth's vote action
+     then call the action when needed: voteAction(self.poll!)
+    */
+    @IBOutlet weak var optionsButtonContainer: UIView!
+    
+    
+    // MARK: - Updating the UI Methods
 /**************************************************************************************************************************/
     func makeButton(choice: String) -> UIButton {
+        
+        
+        
         let button = UIButton(type: .roundedRect)
-        button.backgroundColor = UIColor.flatMint()
+        button.backgroundColor = UIColor.flatWhite()
         button.setTitle(choice, for: .normal)
         button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
         button.addTarget(self, action: #selector(userChoiceButtonPressed), for: .touchUpInside)
@@ -42,8 +59,15 @@ class VotingViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if poll != nil {
+            for option in (poll?.list)! {
+                optionsButtonContainer.addSubview(makeButton(choice: option.key))
+            }
+        } else {
+            print("No Poll available")
+        }   
+        
     }
 
     override func didReceiveMemoryWarning() {

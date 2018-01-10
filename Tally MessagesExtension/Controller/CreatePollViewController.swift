@@ -28,6 +28,7 @@ protocol CreatePollViewControllerDelegate {
 
 class CreatePollViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var optionsContainer: UIView!
     var optionsArray: [UITextField] = []
     let xPos: CGFloat = 50
     var yPos: CGFloat = 20
@@ -61,13 +62,13 @@ class CreatePollViewController: MSMessagesAppViewController {
         let textField = UITextField()
         yPos += 40
         textField.frame = CGRect(x: xPos, y: yPos, width: 210, height: 30)
-        textField.backgroundColor = UIColor.flatWhite()
-        textField.borderStyle = UITextBorderStyle.line
+        textField.backgroundColor = UIColor.white
+        textField.borderStyle = UITextBorderStyle.roundedRect
         textField.placeholder = "Option \(optionNumber)"
         
         optionsArray.append(textField)
         
-        self.view.addSubview(textField)
+        optionsContainer.addSubview(textField)
     }
     
     
