@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Messages
 
 protocol CompactViewControllerDelegate {
     func didShowCreatePoll()
 }
 
-class CompactViewController: UIViewController {
+class CompactViewController: MSMessagesAppViewController {
 
     var delegate: CompactViewControllerDelegate?
     

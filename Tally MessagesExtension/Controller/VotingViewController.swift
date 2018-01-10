@@ -6,9 +6,18 @@
 //  Copyright © 2018 G62-Jonny Hork. All rights reserved.
 //
 
+/*
+ This VC will allow the user to view the current options and then tap the one they want to vote on.
+    - it needs to know what the status of the current poll is
+        - Choices
+        - Current number of votes
+ 
+ do I need to pass this VC the current state of poll?
+ */
+
 import UIKit
 
-class VotingViewController: UIViewController {
+class VotingViewController: MSMessagesAppViewController {
 
     // MARK: Updating the UI Methods
 /**************************************************************************************************************************/

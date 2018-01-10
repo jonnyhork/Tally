@@ -12,7 +12,7 @@ protocol CreatePollViewControllerDelegate {
     func prepareMessage()
 }
 
-class CreatePollViewController: UIViewController {
+class CreatePollViewController: MSMessagesAppViewController {
 
     var delegate: CreatePollViewController?
     
