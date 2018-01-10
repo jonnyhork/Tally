@@ -46,17 +46,32 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         
     }
     //  MARK: Delegate Methods
-/************************************************************************/
+/**************************************************************************************************************************/
     // CompactVC delegate method
     func didShowCreatePoll() {
         requestPresentationStyle(.expanded)
     }
     
-
+    // MARK: Updating the UI Methods
+/**************************************************************************************************************************/
+    func makeButton(choice: String) -> UIButton {
+        let button = UIButton(type: .roundedRect)
+            button.backgroundColor = UIColor.flatMint()
+            button.setTitle(choice, for: .normal)
+            button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
+            button.addTarget(self, action: #selector(userChoiceButtonPressed), for: .touchUpInside)
+        
+        return button
+    }
     
+    // User taps their choice and adds a vote
+    @objc func userChoiceButtonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+        //        newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
+    }
     
     // MARK:  View Controller Selection
-/************************************************************************/
+/**************************************************************************************************************************/
    
     func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
         
@@ -120,7 +135,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     
  
     // MARK:  ViewDidLoad
-/************************************************************************/
+/**********************************************************************************************************************/
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +148,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     // MARK:  Conversation Handling
-/************************************************************************/
+/**********************************************************************************************************************/
 
     
     override func willBecomeActive(with conversation: MSConversation) {

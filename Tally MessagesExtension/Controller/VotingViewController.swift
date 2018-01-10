@@ -10,6 +10,24 @@ import UIKit
 
 class VotingViewController: UIViewController {
 
+    // MARK: Updating the UI Methods
+/**************************************************************************************************************************/
+    func makeButton(choice: String) -> UIButton {
+        let button = UIButton(type: .roundedRect)
+        button.backgroundColor = UIColor.flatMint()
+        button.setTitle(choice, for: .normal)
+        button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
+        button.addTarget(self, action: #selector(userChoiceButtonPressed), for: .touchUpInside)
+        
+        return button
+    }
+    
+    // User taps their choice and adds a vote
+  @objc func userChoiceButtonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+//        newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
