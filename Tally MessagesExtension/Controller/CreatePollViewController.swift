@@ -23,12 +23,12 @@ import ChameleonFramework
 
 
 protocol CreatePollViewControllerDelegate {
-    func newPollCreated(choices: [UITextField])
+    func newPollCreated(pollOptions: [UITextField])
 }
 
 class CreatePollViewController: MSMessagesAppViewController {
     
-    var choicesArray: [UITextField] = []
+    var optionsArray: [UITextField] = []
     let xPos: CGFloat = 50
     var yPos: CGFloat = 20
     var optionNumber = 0
@@ -36,7 +36,7 @@ class CreatePollViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createTextField()
         // Do any additional setup after loading the view.
     }
 
@@ -48,14 +48,11 @@ class CreatePollViewController: MSMessagesAppViewController {
 
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        print("send button pressed")
-        
-        self.delegate?.newPollCreated(choices: choicesArray)
+        self.delegate?.newPollCreated(pollOptions: optionsArray)
     }
   
     
     @IBAction func addOptionButtonPressed(_ sender: UIButton) {
-        print("add button pressed")
         createTextField()
     }
     
@@ -66,10 +63,9 @@ class CreatePollViewController: MSMessagesAppViewController {
         textField.frame = CGRect(x: xPos, y: yPos, width: 210, height: 30)
         textField.backgroundColor = UIColor.flatWhite()
         textField.borderStyle = UITextBorderStyle.line
-        textField.layer.cornerRadius = 6.0
         textField.placeholder = "Option \(optionNumber)"
         
-        choicesArray.append(textField)
+        optionsArray.append(textField)
         
         self.view.addSubview(textField)
     }

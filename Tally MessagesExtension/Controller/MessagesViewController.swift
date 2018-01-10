@@ -53,12 +53,14 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     // CreatePollVC delegate method
-    func newPollCreated(choices: [UITextField]) {
+    func newPollCreated(pollOptions: [UITextField]) {
         // build up the poll obj with the choices passed in
 
-        for choice in choices {
-            print(choice.text!)
+        for option in pollOptions {
+            print("User input Choice: ", option.text!)
+            poll.addOption(toPoll: option.text!)
         }
+        dump(poll, name: "Sate of Poll", indent: 2)
     }
     
     // MARK: Updating the UI Methods
