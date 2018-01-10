@@ -19,13 +19,13 @@ import Messages
 import ChameleonFramework
 
 
-protocol CompactViewControllerDelegate {
+protocol CompactViewControllerDelegate: class {
     func didPressCreatePoll()
 }
 
 class CompactViewController: MSMessagesAppViewController {
 
-    var delegate: CompactViewControllerDelegate?
+  weak var delegate: CompactViewControllerDelegate?
     
     
     @IBAction func createNewPollButtonPressed(_ sender: UIButton) {

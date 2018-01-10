@@ -90,11 +90,11 @@
                                 <rect key="frame" x="16" y="60" width="343" height="186"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
-                                <rect key="frame" x="195" y="251" width="46" height="33"/>
+                                <rect key="frame" x="284" y="290" width="46" height="33"/>
                                 <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="nFD-b8-iBK"/>
-                                    <constraint firstAttribute="width" constant="46" id="s8A-aX-RwR"/>
+                                    <constraint firstAttribute="width" constant="46" id="7Y2-2M-QuC"/>
+                                    <constraint firstAttribute="height" constant="33" id="VKh-5X-oE0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Send">
@@ -105,11 +105,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYW-JB-bG0">
-                                <rect key="frame" x="117" y="251" width="46" height="33"/>
+                                <rect key="frame" x="206" y="290" width="46" height="33"/>
                                 <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="Fal-cS-4DY"/>
-                                    <constraint firstAttribute="height" constant="33" id="G4a-ej-oJ1"/>
+                                    <constraint firstAttribute="width" constant="46" id="K4G-0U-CZ3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="sdO-Mk-rIo"/>
+                                    <constraint firstAttribute="height" constant="33" id="xiZ-c8-jjc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Add">
@@ -122,15 +123,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jYW-JB-bG0" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="206" id="FZT-w1-sX1"/>
                             <constraint firstItem="rtO-TF-UM7" firstAttribute="leading" secondItem="b5D-AM-PMf" secondAttribute="leadingMargin" id="G0h-wK-AA7"/>
                             <constraint firstItem="rtO-TF-UM7" firstAttribute="top" secondItem="sR1-Ic-Tiu" secondAttribute="top" constant="40" id="GtT-BU-vBn"/>
-                            <constraint firstItem="jYW-JB-bG0" firstAttribute="top" secondItem="rtO-TF-UM7" secondAttribute="bottom" constant="5" id="NKH-PW-WDl"/>
-                            <constraint firstItem="jYW-JB-bG0" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="117" id="eam-hz-FkK"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="top" secondItem="rtO-TF-UM7" secondAttribute="bottom" constant="5" id="evy-yJ-uRR"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="jYW-JB-bG0" secondAttribute="trailing" constant="32" id="IWY-Za-Tah"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="top" secondItem="rtO-TF-UM7" secondAttribute="bottom" constant="44" id="Iry-6B-hZ7"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="JIO-hf-oP1" secondAttribute="trailing" constant="45" id="ahI-oP-Prw"/>
                             <constraint firstItem="rtO-TF-UM7" firstAttribute="trailing" secondItem="b5D-AM-PMf" secondAttribute="trailingMargin" id="r8G-KA-bAY"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="bottom" secondItem="rtO-TF-UM7" secondAttribute="bottom" constant="421" id="tkL-wC-giY"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="jYW-JB-bG0" secondAttribute="trailing" constant="32" id="umu-ST-5bS"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="jYW-JB-bG0" secondAttribute="trailing" constant="32" id="yIl-3W-xsC"/>
+                            <constraint firstItem="jYW-JB-bG0" firstAttribute="top" secondItem="rtO-TF-UM7" secondAttribute="bottom" constant="44" id="wTb-Ry-wmW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sR1-Ic-Tiu"/>
                     </view>

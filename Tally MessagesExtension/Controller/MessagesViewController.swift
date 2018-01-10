@@ -50,20 +50,24 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     func prepareMessage(with url: URL) {
         if let conversation: MSConversation = activeConversation {
             
+            if session == nil {
+                session = MSSession()
+            }
+            
             let layout = MSMessageTemplateLayout()
             layout.caption = "Test IM App!"
             layout.subcaption = "Go Jonny"
             
-            let message = MSMessage()
+            let message = MSMessage(session: session!)
             message.layout = layout
-            message.url = prepareURL()
+            message.url = url
             
             conversation.insert(message, completionHandler: { (error: NSError?) in
                 print(error!)
                 } as? (Error?) -> Void)
         }
         
-        requestPresentationStyle(.compact)
+//        requestPresentationStyle(.compact)
         
     }
     
@@ -81,6 +85,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             print("User input Choice: ", option.text!)
             poll.addOption(toPoll: option.text!)
         }
+        let url = prepareURL()
+        prepareMessage(with: url)
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
@@ -112,7 +118,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         // Display the correct view controller
         if presentationStyle == .compact {
             controller = instantiateCompactVC()
-        } else if (session != nil) && presentationStyle == .expanded {
+        } else if (conversation.selectedMessage != nil) && presentationStyle == .expanded {
             controller = instantiateVotingVC(with: poll)
         } else {
             controller = instantiateCreatePollVC()
@@ -198,7 +204,14 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
-        
+        if let messageURL = conversation.selectedMessage?.url {
+            decodeURL(with: messageURL)
+            session = conversation.selectedMessage?.session
+            // build up the poll
+            for option in poll.list {
+                self.view.addSubview(makeButton(choice: option.key))
+            }
+        }
        presentViewController(for: conversation, for: self.presentationStyle)
     }
     

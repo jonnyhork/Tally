@@ -22,7 +22,7 @@ import Messages
 import ChameleonFramework
 
 
-protocol CreatePollViewControllerDelegate {
+protocol CreatePollViewControllerDelegate: class {
     func newPollCreated(pollOptions: [UITextField])
 }
 
@@ -33,7 +33,7 @@ class CreatePollViewController: MSMessagesAppViewController {
     let xPos: CGFloat = 50
     var yPos: CGFloat = 20
     var optionNumber = 0
-    var delegate: CreatePollViewControllerDelegate?
+    weak var delegate: CreatePollViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +50,7 @@ class CreatePollViewController: MSMessagesAppViewController {
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         self.delegate?.newPollCreated(pollOptions: optionsArray)
+        self.dismiss()
     }
   
     
