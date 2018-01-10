@@ -6,13 +6,21 @@
 //  Copyright © 2018 G62-Jonny Hork. All rights reserved.
 //
 
+/*
+ This VC will allow the user to tap on create new poll button to view the createPollVC
+ 
+ - stretch goal: show a continue poll button if they started making a poll but transitioned to the compact view
+    - protocol creates a method to presentVC with identfier "CreatePollViewController", called in the MessagesVC
+
+ */
+
 import UIKit
 import Messages
 import ChameleonFramework
 
 
 protocol CompactViewControllerDelegate {
-    func didShowCreatePoll()
+    func didPressCreatePoll()
 }
 
 class CompactViewController: MSMessagesAppViewController {
@@ -21,7 +29,7 @@ class CompactViewController: MSMessagesAppViewController {
     
     
     @IBAction func createNewPollButtonPressed(_ sender: UIButton) {
-        self.delegate?.didShowCreatePoll()
+        self.delegate?.didPressCreatePoll()
     }
     
     override func viewDidLoad() {

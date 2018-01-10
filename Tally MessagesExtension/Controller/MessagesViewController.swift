@@ -10,7 +10,7 @@ import UIKit
 import Messages
 import ChameleonFramework
 
-class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate {
+class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate {
     
     var session: MSSession?
     var currentConversation: MSConversation?
@@ -48,8 +48,17 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     //  MARK: Delegate Methods
 /**************************************************************************************************************************/
     // CompactVC delegate method
-    func didShowCreatePoll() {
+    func didPressCreatePoll() {
         requestPresentationStyle(.expanded)
+    }
+    
+    // CreatePollVC delegate method
+    func newPollCreated(choices: [UITextField]) {
+        // build up the poll obj with the choices passed in
+
+        for choice in choices {
+            print(choice.text!)
+        }
     }
     
     // MARK: Updating the UI Methods
@@ -123,6 +132,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         guard let createPollVC = self.storyboard?.instantiateViewController(withIdentifier: "CreatePollViewController") as? CreatePollViewController else {
             fatalError("Can'instantiate CreatePollViewController")
         }
+        createPollVC.delegate = self
         return createPollVC
     }
     
