@@ -13,6 +13,32 @@ import ChameleonFramework
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate {
     
     var session: MSSession?
+    var poll = Poll()
+    
+    // MARK: Message Construction
+/************************************************************************/
+    
+    func prepareURL() -> URL {
+        var components = URLComponents()
+       
+        return components.url!
+    }
+    
+    func decodeURL(with url: URL){
+        
+    }
+    
+    func prepareMessage(with url: URL){
+        
+    }
+    //  MARK: Delegate Methods
+/************************************************************************/
+    // CompactVC delegate method
+    func didShowCreatePoll() {
+        requestPresentationStyle(.expanded)
+    }
+    
+
     
     
     // MARK:  View Controller Selection
@@ -22,6 +48,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         
         var controller: UIViewController!
         
+        // Display the correct view controller
         if presentationStyle == .compact {
             controller = instantiateCompactVC()
         } else if (session != nil) && presentationStyle == .expanded {
@@ -29,8 +56,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         } else {
             controller = instantiateCreatePollVC()
         }
-        
-
         
         // remove any existing controllers
         for child in childViewControllers {
@@ -79,13 +104,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         return votingVC
     }
     
-    //  MARK: Delegate Methods
-/************************************************************************/
-    // CompactVC delegate method
-    func didShowCreatePoll() {
-        requestPresentationStyle(.expanded)
-    }
-    
+ 
     // MARK:  ViewDidLoad
 /************************************************************************/
 

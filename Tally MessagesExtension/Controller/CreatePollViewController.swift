@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol CreatePollViewControllerDelegate {
+    func prepareMessage()
+}
+
 class CreatePollViewController: UIViewController {
 
+    var delegate: CreatePollViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
