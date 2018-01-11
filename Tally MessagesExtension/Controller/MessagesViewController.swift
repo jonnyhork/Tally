@@ -48,6 +48,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     func prepareMessage(with url: URL) {
+        
         if let conversation: MSConversation = activeConversation {
             
             if session == nil {
@@ -66,9 +67,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 print(error!)
                 } as? (Error?) -> Void)
         }
-        
-//        requestPresentationStyle(.compact)
-        
     }
     
     //  MARK: - Delegate Methods
@@ -171,6 +169,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         }
 //        votingVC.delegate = self
             votingVC.poll = poll
+        votingVC.currentConversation = currentConversation // TODO: currentconversation might be nil at this point
         
         /*
          this is worth's do code to handle adding a vote. 

@@ -52,17 +52,7 @@ class VotingViewController: MSMessagesAppViewController {
         return button
     }
     
-    // User taps their choice and adds a vote
-  @objc func userChoiceButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
-//        newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
-    }
-    
-
-    override func willBecomeActive(with conversation: MSConversation) {
-        
-        currentConversation = conversation
-        
+    func updateUI() {
         if poll != nil {
             for option in (poll?.list)! {
                 optionsButtonContainer.addSubview(makeButton(choice: option.key))
@@ -71,19 +61,21 @@ class VotingViewController: MSMessagesAppViewController {
             print("No Poll available")
         }
     }
+    
+    
+    // User taps their choice and adds a vote
+  @objc func userChoiceButtonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+        poll?.addVote(to: sender.currentTitle!, by: (currentConversation?.localParticipantIdentifier.uuidString)!)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        currentConversation = conversation
-        
-        if poll != nil {
-            for option in (poll?.list)! {
-                optionsButtonContainer.addSubview(makeButton(choice: option.key))
-            }
-        } else {
-            print("No Poll available")
-        }
+        updateUI()
     }
+       
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
