@@ -10,6 +10,10 @@ import UIKit
 
 class CustomVotingCell: UITableViewCell {
 
+    
+    @IBOutlet weak var votingOptionLabel: UILabel!
+    @IBOutlet weak var totalVotesLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

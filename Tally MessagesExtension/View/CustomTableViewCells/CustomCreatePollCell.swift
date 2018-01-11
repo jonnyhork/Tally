@@ -10,6 +10,13 @@ import UIKit
 
 class CustomCreatePollCell: UITableViewCell {
 
+    @IBOutlet weak var optionTextField: UITextField!
+    
+    
+    @IBAction func detailButton(_ sender: UIButton) {
+        print("detailButton Pressed")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
