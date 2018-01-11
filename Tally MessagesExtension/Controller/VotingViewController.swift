@@ -24,42 +24,47 @@ import ChameleonFramework
 //}
 
 
-class VotingViewController: MSMessagesAppViewController {
+class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
 
-    // this is where I will have to pass the current state of the poll
+    @IBOutlet weak var votingTableView: UITableView!
+    
     var poll: Poll?
-    let xPos: CGFloat = 50
-    var yPos: CGFloat = 20
     var currentConversation: MSConversation?
 //    weak var delegate: votingViewControllerDelegate?
+  
     /*
      var voteAction: (Poll) -> Void = { _ in } // Worth's vote action
      then call the action when needed: voteAction(self.poll!)
     */
-    @IBOutlet weak var optionsButtonContainer: UIView!
     
     
-    // MARK: - Updating the UI Methods
-/**************************************************************************************************************************/
-    func makeButton(choice: String) -> UIButton {
-        yPos += 40
-        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 210, height: 30))
-        button.backgroundColor = UIColor.flatWhite()
-        button.setTitle(choice, for: .normal)
-        button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
-        button.addTarget(self, action: #selector(userChoiceButtonPressed), for: .touchUpInside)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //TODO: Set yourself as the delegate and datasource here:
+        votingTableView.delegate = self
+        votingTableView.dataSource = self
         
-        return button
+        //TODO: Register your MessageCell.xib file here:
+        votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")
     }
     
-    func updateUI() {
-        if poll != nil {
-            for option in (poll?.list)! {
-                optionsButtonContainer.addSubview(makeButton(choice: option.key))
-            }
-        } else {
-            print("No Poll available")
-        }
+
+    //MARK: - TableView DataSource Methods
+/////////////////////////////////////////////////////////////////////
+
+    //TODO: Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
+        
+        return cell
+    }
+    
+    //TODO: Declare numberOfRowsInSection here:
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
     
     
@@ -69,28 +74,11 @@ class VotingViewController: MSMessagesAppViewController {
         poll?.addVote(to: sender.currentTitle!, by: (currentConversation?.localParticipantIdentifier.uuidString)!)
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        currentConversation = conversation
-        updateUI()
-    }
-       
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

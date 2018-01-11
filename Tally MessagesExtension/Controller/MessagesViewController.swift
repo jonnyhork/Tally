@@ -18,8 +18,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     var poll = Poll()
     
     // MARK: - Message Construction
-/************************************************************************/
-    
+/////////////////////////////////////////////////////////////////////
+
     func prepareURL() -> URL {
         
         var components = URLComponents()
@@ -69,8 +69,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         }
     }
     
+    
     //  MARK: - Delegate Methods
-/**************************************************************************************************************************/
+/////////////////////////////////////////////////////////////////////
+    
     // CompactVC delegate method
     func didPressCreatePoll() {
         requestPresentationStyle(.expanded)
@@ -88,8 +90,9 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
+    
     // MARK: - Updating the UI Methods
-/**************************************************************************************************************************/
+/////////////////////////////////////////////////////////////////////
     func makeButton(choice: String) -> UIButton {
         let button = UIButton(type: .roundedRect)
             button.backgroundColor = UIColor.flatMint()
@@ -106,9 +109,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         //newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
     }
     
+    
     // MARK: - View Controller Selection
-/**************************************************************************************************************************/
-   
+/////////////////////////////////////////////////////////////////////
+
     func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
         
         var controller: UIViewController!
@@ -143,10 +147,12 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         controller.didMove(toParentViewController: self)
     }
    
-    /* -------------------------------------------------------------------- */
+
+
     // MARK: - Instantiate VC Methods
     // Methods for instantiating a specific View Controller
-    
+/////////////////////////////////////////////////////////////////////
+
     private func instantiateCompactVC() -> UIViewController {
         guard let compactVC = self.storyboard?.instantiateViewController(withIdentifier: "CompactViewController") as? CompactViewController else {
             fatalError("Can't instantiate CompactViewController")
@@ -180,9 +186,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         return votingVC
     }
     
- 
     // MARK: - ViewDidLoad
-/**********************************************************************************************************************/
+/////////////////////////////////////////////////////////////////////
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,7 +200,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     // MARK: - Conversation Handling
-/**********************************************************************************************************************/
+/////////////////////////////////////////////////////////////////////
 
     
     override func willBecomeActive(with conversation: MSConversation) {

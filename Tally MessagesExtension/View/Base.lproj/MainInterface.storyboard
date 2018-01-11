@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -161,22 +160,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VotingVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VotingVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
                                 <rect key="frame" x="146.5" y="27" width="83.5" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <color key="textColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOT-9c-gl7" userLabel="Option Button Container">
-                                <rect key="frame" x="16" y="85" width="343" height="188"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
                                 <rect key="frame" x="277" y="281" width="63" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="lCk-qo-AVd"/>
-                                    <constraint firstAttribute="width" constant="63" id="yyU-FF-Vvm"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,22 +179,28 @@
                                     <action selector="createNewPollButtonPressed:" destination="1pk-XO-mI2" eventType="touchUpInside" id="HKg-6a-Qzy"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">
+                                <rect key="frame" x="16" y="58" width="343" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="votingCell" id="mO9-Wa-9lD">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mO9-Wa-9lD" id="0bf-WA-sj1">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="xOT-9c-gl7" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="85" id="2Av-Dv-1JG"/>
-                            <constraint firstItem="xOT-9c-gl7" firstAttribute="trailing" secondItem="3ug-OP-DQp" secondAttribute="trailingMargin" id="AnT-bc-u1Q"/>
-                            <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="HEc-3a-aoO" secondAttribute="trailing" constant="35" id="BE9-qF-GVe"/>
-                            <constraint firstItem="0qT-6P-F3f" firstAttribute="bottom" secondItem="xOT-9c-gl7" secondAttribute="bottom" constant="394" id="UvA-4X-zwR"/>
-                            <constraint firstItem="xOT-9c-gl7" firstAttribute="centerX" secondItem="RKW-Ic-wUl" secondAttribute="centerX" id="bqJ-bo-ahy"/>
-                            <constraint firstItem="xOT-9c-gl7" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="35" id="kGG-AX-GDd"/>
-                            <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="xOT-9c-gl7" secondAttribute="bottom" constant="8" id="ou5-v3-4AR"/>
-                            <constraint firstItem="xOT-9c-gl7" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" id="shY-PY-twW"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0qT-6P-F3f"/>
                     </view>
                     <connections>
-                        <outlet property="optionsButtonContainer" destination="xOT-9c-gl7" id="4CU-Ol-W9w"/>
+                        <outlet property="votingTableView" destination="O1d-PW-KLV" id="AUm-aU-o7p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jqo-hr-gpE" userLabel="First Responder" sceneMemberID="firstResponder"/>

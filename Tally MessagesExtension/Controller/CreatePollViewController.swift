@@ -28,8 +28,6 @@ protocol CreatePollViewControllerDelegate: class {
 
 class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // TODO: Add some variable to collect the tableview values?
-    
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var createPollTableView: UITableView!
     
@@ -66,32 +64,18 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
-//    // this will get called everytime a table cell is selected
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //get the cell based on the indexPath
-//        let cell = tableView.cellForRow(at: indexPath) as! CustomCreatePollCell
-//        //get the text from a textLabel
-//        if let text = cell.optionTextField.text, !text.isEmpty {
-//            options[indexPath] = text        }
-//    }
-    
 
+/////////////////////////////////////////////////////////////////////
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         //TODO: Send the poll options and package the message
-
-        print("send button pressed")
         
-        // cell doesnt have access to my custom cell textfield outlet here =(
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             let option = myCell.optionTextField.text
             optionsArray.append(option!)
         }
-        
         self.delegate?.newPollCreated(pollOptions: optionsArray)
         self.dismiss()
     }
   
-
-}
+} // end of class
