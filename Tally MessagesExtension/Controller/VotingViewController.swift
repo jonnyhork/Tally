@@ -63,6 +63,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         for (key, value) in (poll?.list)! {
             pollArray.append((key, value))
         }
+        
         let (key, value) = pollArray[indexPath.row]
         cell.votingOptionLabel.text = key
         cell.totalVotesLabel.text = String(value.count)
@@ -77,6 +78,11 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         return (poll?.list.count)!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = votingTableView.cellForRow(at: indexPath) as! CustomVotingCell
+        
+        print(selectedCell.votingOptionLabel.text)
+    }
     
     // User taps their choice and adds a vote
   @objc func userChoiceButtonPressed(_ sender: UIButton) {
