@@ -23,21 +23,23 @@ import ChameleonFramework
 
 
 protocol CreatePollViewControllerDelegate: class {
-    func newPollCreated(pollOptions: [UITextField])
+    func newPollCreated(pollOptions: [String])
 }
 
-class CreatePollViewController: MSMessagesAppViewController {
+class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate {
     
-    @IBOutlet weak var optionsContainer: UIView!
-    var optionsArray: [UITextField] = []
-    let xPos: CGFloat = 50
-    var yPos: CGFloat = 20
+    // TODO: Add some variable to collect the tableview values?
+    
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var createPollTableView: UITableView!
+    
+    var optionsArray: [String] = []
     var optionNumber = 0
     weak var delegate: CreatePollViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createTextField()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -46,41 +48,10 @@ class CreatePollViewController: MSMessagesAppViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         self.delegate?.newPollCreated(pollOptions: optionsArray)
         self.dismiss()
     }
   
-    
-    @IBAction func addOptionButtonPressed(_ sender: UIButton) {
-        createTextField()
-    }
-    
-    func createTextField () {
-        optionNumber += 1
-        let textField = UITextField()
-        yPos += 40
-        textField.frame = CGRect(x: xPos, y: yPos, width: 210, height: 30)
-        textField.backgroundColor = UIColor.white
-        textField.borderStyle = UITextBorderStyle.roundedRect
-        textField.placeholder = "Option \(optionNumber)"
-        
-        optionsArray.append(textField)
-        
-        optionsContainer.addSubview(textField)
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
