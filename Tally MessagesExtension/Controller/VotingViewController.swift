@@ -58,13 +58,23 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
         
+        var pollArray : [(String, Set<String>)] = []
+        
+        for (key, value) in (poll?.list)! {
+            pollArray.append((key, value))
+        }
+        let (key, value) = pollArray[indexPath.row]
+        cell.votingOptionLabel.text = key
+        cell.totalVotesLabel.text = String(value.count)
+
+    
         return cell
     }
     
     //TODO: Declare numberOfRowsInSection here:
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return (poll?.list.count)!
     }
     
     

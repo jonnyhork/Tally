@@ -29,13 +29,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-uS-Zca" userLabel="Vote Count Label">
-                        <rect key="frame" x="262" y="11" width="10.5" height="21"/>
+                        <rect key="frame" x="262" y="11" width="11.5" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.15101002156734467" green="0.56891876459121704" blue="0.43715286254882812" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="1" height="1"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="1aW-uS-Zca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1y0-K8-I4R"/>
                     <constraint firstItem="dhs-zB-F9E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8dM-DP-9Pt"/>

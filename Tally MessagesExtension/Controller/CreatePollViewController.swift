@@ -62,7 +62,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     //TODO: Declare numberOfRowsInSection here:
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
 
 /////////////////////////////////////////////////////////////////////
