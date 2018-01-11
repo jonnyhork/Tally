@@ -26,7 +26,9 @@ protocol CreatePollViewControllerDelegate: class {
     func newPollCreated(pollOptions: [String])
 }
 
-class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate {
+class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     // TODO: Add some variable to collect the tableview values?
     
@@ -40,8 +42,51 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        //TODO: Set yourself as the delegate and datasource here:
+        createPollTableView.delegate = self
+        createPollTableView.dataSource = self
+        
+        
+        //TODO: Set yourself as the delegate of the text field here:
+        
+        
+        
+        //TODO: Set the tapGesture here:
+        
+        
+        
+        //TODO: Register your MessageCell.xib file here:
+        createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
+        
     }
+    
+    //MARK: - TableView DataSource Methods
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    //TODO: Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
+        
+        return cell
+    }
+    
+    //TODO: Declare numberOfRowsInSection here:
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    
+    
+    //TODO: Declare tableViewTapped here:
+    
+    
+    
+    //TODO: Declare configureTableView here:
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,6 +94,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
+        //TODO: Send the poll options and package the message
         self.delegate?.newPollCreated(pollOptions: optionsArray)
         self.dismiss()
     }

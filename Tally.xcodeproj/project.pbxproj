@@ -17,9 +17,9 @@
 		F4506F39200432D600E761C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4506F38200432D600E761C4 /* Assets.xcassets */; };
 		F4615820200511D90032B231 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461581F200511D90032B231 /* Poll.swift */; };
 		F49098A42007ABE400901B18 /* CustomCreatePollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49098A22007ABE400901B18 /* CustomCreatePollCell.swift */; };
-		F49098A52007ABE400901B18 /* CustomCreatePollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49098A32007ABE400901B18 /* CustomCreatePollCell.xib */; };
+		F49098A52007ABE400901B18 /* CreatePollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49098A32007ABE400901B18 /* CreatePollCell.xib */; };
 		F49098A82007AC1500901B18 /* CustomVotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49098A62007AC1500901B18 /* CustomVotingCell.swift */; };
-		F49098A92007AC1500901B18 /* CustomVotingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49098A72007AC1500901B18 /* CustomVotingCell.xib */; };
+		F49098A92007AC1500901B18 /* VotingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49098A72007AC1500901B18 /* VotingCell.xib */; };
 		F4ADF08420053AED00756037 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08320053AED00756037 /* CompactViewController.swift */; };
 		F4ADF08620053B0C00756037 /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08520053B0C00756037 /* CreatePollViewController.swift */; };
 		F4ADF08820053B7B00756037 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADF08720053B7B00756037 /* VotingViewController.swift */; };
@@ -67,9 +67,9 @@
 		F461581E200511D90032B231 /* Tally-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tally-Bridging-Header.h"; sourceTree = "<group>"; };
 		F461581F200511D90032B231 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		F49098A22007ABE400901B18 /* CustomCreatePollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCreatePollCell.swift; sourceTree = "<group>"; };
-		F49098A32007ABE400901B18 /* CustomCreatePollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCreatePollCell.xib; sourceTree = "<group>"; };
+		F49098A32007ABE400901B18 /* CreatePollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePollCell.xib; sourceTree = "<group>"; };
 		F49098A62007AC1500901B18 /* CustomVotingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVotingCell.swift; sourceTree = "<group>"; };
-		F49098A72007AC1500901B18 /* CustomVotingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomVotingCell.xib; sourceTree = "<group>"; };
+		F49098A72007AC1500901B18 /* VotingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingCell.xib; sourceTree = "<group>"; };
 		F4ADF08320053AED00756037 /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		F4ADF08520053B0C00756037 /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
 		F4ADF08720053B7B00756037 /* VotingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
@@ -192,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				F49098A22007ABE400901B18 /* CustomCreatePollCell.swift */,
-				F49098A32007ABE400901B18 /* CustomCreatePollCell.xib */,
+				F49098A32007ABE400901B18 /* CreatePollCell.xib */,
 				F49098A62007AC1500901B18 /* CustomVotingCell.swift */,
-				F49098A72007AC1500901B18 /* CustomVotingCell.xib */,
+				F49098A72007AC1500901B18 /* VotingCell.xib */,
 			);
 			path = CustomTableViewCells;
 			sourceTree = "<group>";
@@ -296,9 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4506F39200432D600E761C4 /* Assets.xcassets in Resources */,
-				F49098A52007ABE400901B18 /* CustomCreatePollCell.xib in Resources */,
+				F49098A52007ABE400901B18 /* CreatePollCell.xib in Resources */,
 				F4506F37200432D600E761C4 /* MainInterface.storyboard in Resources */,
-				F49098A92007AC1500901B18 /* CustomVotingCell.xib in Resources */,
+				F49098A92007AC1500901B18 /* VotingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

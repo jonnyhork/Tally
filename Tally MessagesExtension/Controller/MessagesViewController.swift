@@ -77,11 +77,11 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     // CreatePollVC delegate method
-    func newPollCreated(pollOptions: [UITextField]) {
+    func newPollCreated(pollOptions: [String]) {
         // build up the poll obj with the choices passed in
         for option in pollOptions {
-            print("User input Choice: ", option.text!)
-            poll.addOption(toPoll: option.text!)
+            print("User input Choice: ", option)
+            poll.addOption(toPoll: option)
         }
         let url = prepareURL()
         prepareMessage(with: url)
