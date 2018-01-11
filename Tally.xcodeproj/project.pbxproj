@@ -150,7 +150,6 @@
 		F4506F32200432D600E761C4 /* Tally MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F49098A12007AB6400901B18 /* CustomTableViewCells */,
 				F461581B20050EBC0032B231 /* Model */,
 				F461581C20050ECD0032B231 /* View */,
 				F461581D20050ED70032B231 /* Controller */,
@@ -172,6 +171,7 @@
 		F461581C20050ECD0032B231 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F49098A12007AB6400901B18 /* CustomTableViewCells */,
 				F4506F35200432D600E761C4 /* MainInterface.storyboard */,
 			);
 			path = View;
