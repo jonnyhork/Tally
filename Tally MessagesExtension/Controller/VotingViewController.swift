@@ -28,6 +28,9 @@ class VotingViewController: MSMessagesAppViewController {
 
     // this is where I will have to pass the current state of the poll
     var poll: Poll?
+    let xPos: CGFloat = 50
+    var yPos: CGFloat = 20
+    var currentConversation: MSConversation?
 //    weak var delegate: votingViewControllerDelegate?
     /*
      var voteAction: (Poll) -> Void = { _ in } // Worth's vote action
@@ -39,10 +42,8 @@ class VotingViewController: MSMessagesAppViewController {
     // MARK: - Updating the UI Methods
 /**************************************************************************************************************************/
     func makeButton(choice: String) -> UIButton {
-        
-        
-        
-        let button = UIButton(type: .roundedRect)
+        yPos += 40
+        let button = UIButton(frame: CGRect(x: xPos, y: yPos, width: 210, height: 30))
         button.backgroundColor = UIColor.flatWhite()
         button.setTitle(choice, for: .normal)
         button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
@@ -57,8 +58,10 @@ class VotingViewController: MSMessagesAppViewController {
 //        newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func willBecomeActive(with conversation: MSConversation) {
+        
+        currentConversation = conversation
         
         if poll != nil {
             for option in (poll?.list)! {
@@ -66,8 +69,20 @@ class VotingViewController: MSMessagesAppViewController {
             }
         } else {
             print("No Poll available")
-        }   
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        currentConversation = conversation
         
+        if poll != nil {
+            for option in (poll?.list)! {
+                optionsButtonContainer.addSubview(makeButton(choice: option.key))
+            }
+        } else {
+            print("No Poll available")
+        }
     }
 
     override func didReceiveMemoryWarning() {
