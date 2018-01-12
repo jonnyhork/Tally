@@ -57,6 +57,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             let layout = MSMessageTemplateLayout()
                 layout.caption = "What's the Tally?"
                 layout.subcaption = "make your choice"
+                layout.image = UIImage(named: "bar-chart")
             
             let message = MSMessage(session: session!)
                 message.layout = layout

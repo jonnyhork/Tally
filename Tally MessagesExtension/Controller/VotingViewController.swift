@@ -79,7 +79,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         
         // make a call to add a vote to the option
         self.delegate?.addVoteToPoll(userChoice: selectedOption)
-       
+        votingTableView.reloadData()
     }
 
     @IBAction func sendButtonPressed(_ sender: UIButton) {
