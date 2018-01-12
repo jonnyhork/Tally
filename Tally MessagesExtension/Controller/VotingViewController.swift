@@ -47,7 +47,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     //MARK: - TableView DataSource Methods
 /////////////////////////////////////////////////////////////////////
 
-    //TODO: Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
+    // Triggered when the table view looks to find something to display
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
@@ -65,7 +65,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         return cell
     }
     
-    //TODO: Declare numberOfRowsInSection here:
+    // determines how many cells to render based on the number options in the poll
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (poll?.list.count)!
@@ -81,4 +81,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
        
     }
 
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+        print("send button pressed")
+    }
 }

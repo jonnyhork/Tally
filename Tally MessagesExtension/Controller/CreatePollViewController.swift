@@ -23,7 +23,7 @@ import ChameleonFramework
 
 
 protocol CreatePollViewControllerDelegate: class {
-    func newPollCreated(pollOptions: [String])
+    func newPollCreated(currentPoll: Poll)
 }
 
 class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
@@ -33,6 +33,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     var optionsArray: [String] = []
     var optionNumber = 0
+    var poll = Poll()
+    
     weak var delegate: CreatePollViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -72,9 +74,10 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             let option = myCell.optionTextField.text
-            optionsArray.append(option!)
+//            optionsArray.append(option!)
+            poll.addOption(toPoll: option!)
         }
-        self.delegate?.newPollCreated(pollOptions: optionsArray)
+        self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
     }
   

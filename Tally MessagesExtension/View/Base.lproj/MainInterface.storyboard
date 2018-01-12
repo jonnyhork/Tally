@@ -176,7 +176,7 @@
                                     <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="createNewPollButtonPressed:" destination="1pk-XO-mI2" eventType="touchUpInside" id="HKg-6a-Qzy"/>
+                                    <action selector="sendButtonPressed:" destination="6bd-aC-yjb" eventType="touchUpInside" id="zDV-A0-BtP"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">

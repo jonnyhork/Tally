@@ -55,8 +55,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             }
             
             let layout = MSMessageTemplateLayout()
-                layout.caption = "Test IM App!"
-                layout.subcaption = "Go Jonny"
+                layout.caption = "What's the Tally?"
+                layout.subcaption = "make your choice"
             
             let message = MSMessage(session: session!)
                 message.layout = layout
@@ -78,15 +78,19 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     }
     
     // CreatePollVC delegate method
-    func newPollCreated(pollOptions: [String]) {
+    func newPollCreated(currentPoll: Poll) {
         // build up the poll obj with the choices passed in
-        for option in pollOptions {
-            poll.addOption(toPoll: option)
-        }
+//        for option in pollOptions {
+//            poll.addOption(toPoll: option)
+//        }
+        poll = currentPoll
         let url = prepareURL()
         prepareMessage(with: url)
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
+    
+    // MARK: - Update Poll Sate
+///////////////////////////////////////////////////////////////////////
     
     func addVoteToPoll(userChoice: String) {
         guard let currentUser = activeConversation?.localParticipantIdentifier.uuidString else {fatalError("No Current User UUID to vote with")}
