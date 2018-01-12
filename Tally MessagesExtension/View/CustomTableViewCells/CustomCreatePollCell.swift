@@ -8,29 +8,19 @@
 
 import UIKit
 
-protocol CreatePollCellDelegate: class {
-    func addNewCell()
-}
-
 class CustomCreatePollCell: UITableViewCell {
    
-  weak var delegate: CreatePollCellDelegate?
-    
     @IBOutlet weak var optionTextField: UITextField!
     
-    @IBAction func detailButton(_ sender: UIButton) {
-        self.delegate?.addNewCell()
-        print("detailButton Pressed")
-    }
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
 }
+
+

@@ -26,13 +26,14 @@ protocol CreatePollViewControllerDelegate: class {
     func newPollCreated(currentPoll: Poll)
 }
 
-class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, CreatePollCellDelegate {
+class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var createPollTableView: UITableView!
     
-    var optionNumber = 0
-    var optionCount = 1
+    
+    var optionCount = 2
+    var bottomTextField: UITextField?
     var poll = Poll()
     
     weak var delegate: CreatePollViewControllerDelegate?
@@ -59,15 +60,19 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.endUpdates()
     }
     
-    //TODO: Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
+    // Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
-        cell.delegate = self
+        
+        cell.optionTextField.delegate = self
+        cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
+        bottomTextField = cell.optionTextField
+        
         return cell
     }
     
-    //TODO: Declare numberOfRowsInSection here:
+    // Declare numberOfRowsInSection here:
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionCount
@@ -75,7 +80,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
 
 /////////////////////////////////////////////////////////////////////
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        //TODO: Send the poll options and package the message
+        // Send the poll options and package the message
         
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
@@ -87,3 +92,13 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     }
   
 } // end of class
+
+extension CreatePollViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField === bottomTextField, textField.text?.isEmpty == true {
+            bottomTextField = nil
+            addNewCell()
+        }
+        return true
+    }
+}
