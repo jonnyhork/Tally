@@ -89,6 +89,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
+    func sendUpdatedPoll() {
+        newPollCreated(currentPoll: poll)
+    }
+    
     // MARK: - Update Poll Sate
 ///////////////////////////////////////////////////////////////////////
     
