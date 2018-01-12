@@ -20,7 +20,7 @@ import Messages
 import ChameleonFramework
 
 protocol votingViewControllerDelegate: class {
-    func addVoteToPoll(with: String)
+    func addVoteToPoll(userChoice: String)
 }
 
 
@@ -62,7 +62,6 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         cell.votingOptionLabel.text = key
         cell.totalVotesLabel.text = String(value.count)
 
-    
         return cell
     }
     
@@ -72,28 +71,14 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         return (poll?.list.count)!
     }
     
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let selectedCell = votingTableView.cellForRow(at: indexPath) as! CustomVotingCell
-        guard let selectedOption = selectedCell.votingOptionLabel.text else {fatalError("no slected optption")}
+        guard let selectedOption = selectedCell.votingOptionLabel.text else {fatalError("no slected option")}
         
         // make a call to add a vote to the option
-        self.delegate?.addVoteToPoll(with: selectedOption)
-        /*
-         var voteAction: (Poll) -> Void = { _ in }
-         then call the action when needed: voteAction(self.poll!)
-         */
-
-//        poll?.addVote(to: selectedOption, by: <#T##String#>)
-        
-        /*
-         this is what I'd like to do but I cant seem to pass the currentConversation: MSConversation to the votingVC to use the UUID:
-            poll?.addVote(to: sender.currentTitle!, by: (currentConversation?.localParticipantIdentifier.uuidString)!)
-        */
-        
-        // make sure the only vote one thing, remove the previous vote before added to the new vote
-        print(selectedCell.votingOptionLabel.text!)
+        self.delegate?.addVoteToPoll(userChoice: selectedOption)
+       
     }
 
 }
