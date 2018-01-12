@@ -44,7 +44,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
-        
+        createPollTableView.allowsSelection = false
         
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
@@ -53,14 +53,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     //MARK: - TableView DataSource Methods
 /////////////////////////////////////////////////////////////////////
-    func addNewCell() {
-        createPollTableView.beginUpdates()
-        optionCount += 1
-        createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
-        createPollTableView.endUpdates()
-    }
-    
-    // Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
+
+    // Declare cellForRowAtIndexPath here: Triggered when the table view looks to find something to display
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
@@ -78,10 +72,17 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         return optionCount
     }
 
+    func addNewCell() {
+        createPollTableView.beginUpdates()
+        optionCount += 1
+        createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
+        createPollTableView.endUpdates()
+    }
 /////////////////////////////////////////////////////////////////////
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        // Send the poll options and package the message
         
+        // Send the poll options and package the message
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             let option = myCell.optionTextField.text
