@@ -85,8 +85,12 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         // Send the poll options and package the message
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
-            let option = myCell.optionTextField.text
-            poll.addOption(toPoll: option!)
+            
+            // if the textfield is empty then don't add it to the poll
+            if (myCell.optionTextField.text?.isEmpty == false) {
+                let option = myCell.optionTextField.text
+                poll.addOption(toPoll: option!)
+            }
         }
         self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
