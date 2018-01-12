@@ -19,9 +19,9 @@ import UIKit
 import Messages
 import ChameleonFramework
 
-//protocol votingViewControllerDelegate: class {
-//    func instantiateVotingVC(with: Poll) -> UIViewController
-//}
+protocol votingViewControllerDelegate: class {
+    func addVoteToPoll(with: String)
+}
 
 
 class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
@@ -30,15 +30,9 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     
     var poll: Poll?
     var currentConversation: MSConversation?
-//    weak var delegate: votingViewControllerDelegate?
+    weak var delegate: votingViewControllerDelegate?
   
-    /*
-     var voteAction: (Poll) -> Void = { _ in } // Worth's vote action
-     then call the action when needed: voteAction(self.poll!)
-    */
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: Set yourself as the delegate and datasource here:
@@ -78,23 +72,28 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         return (poll?.list.count)!
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = votingTableView.cellForRow(at: indexPath) as! CustomVotingCell
+        guard let selectedOption = selectedCell.votingOptionLabel.text else {fatalError("no slected optption")}
         
-        print(selectedCell.votingOptionLabel.text)
+        // make a call to add a vote to the option
+        self.delegate?.addVoteToPoll(with: selectedOption)
+        /*
+         var voteAction: (Poll) -> Void = { _ in }
+         then call the action when needed: voteAction(self.poll!)
+         */
+
+//        poll?.addVote(to: selectedOption, by: <#T##String#>)
+        
+        /*
+         this is what I'd like to do but I cant seem to pass the currentConversation: MSConversation to the votingVC to use the UUID:
+            poll?.addVote(to: sender.currentTitle!, by: (currentConversation?.localParticipantIdentifier.uuidString)!)
+        */
+        
+        // make sure the only vote one thing, remove the previous vote before added to the new vote
+        print(selectedCell.votingOptionLabel.text!)
     }
-    
-    // User taps their choice and adds a vote
-  @objc func userChoiceButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
-        poll?.addVote(to: sender.currentTitle!, by: (currentConversation?.localParticipantIdentifier.uuidString)!)
-    }
-    
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 }

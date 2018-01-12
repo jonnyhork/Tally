@@ -10,7 +10,7 @@ import UIKit
 import Messages
 import ChameleonFramework
 
-class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate {
+class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate, votingViewControllerDelegate {
     
 
     var session: MSSession?
@@ -56,12 +56,12 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             }
             
             let layout = MSMessageTemplateLayout()
-            layout.caption = "Test IM App!"
-            layout.subcaption = "Go Jonny"
+                layout.caption = "Test IM App!"
+                layout.subcaption = "Go Jonny"
             
             let message = MSMessage(session: session!)
-            message.layout = layout
-            message.url = url
+                message.layout = layout
+                message.url = url
             
             conversation.insert(message, completionHandler: { (error: NSError?) in
                 print(error!)
@@ -82,7 +82,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     func newPollCreated(pollOptions: [String]) {
         // build up the poll obj with the choices passed in
         for option in pollOptions {
-            print("User input Choice: ", option)
             poll.addOption(toPoll: option)
         }
         let url = prepareURL()
@@ -90,26 +89,13 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
-    
-    // MARK: - Updating the UI Methods
-/////////////////////////////////////////////////////////////////////
-    func makeButton(choice: String) -> UIButton {
-        let button = UIButton(type: .roundedRect)
-            button.backgroundColor = UIColor.flatMint()
-            button.setTitle(choice, for: .normal)
-            button.setTitleColor(UIColor.flatPlumColorDark(), for: .normal)
-            button.addTarget(self, action: #selector(userChoiceButtonPressed), for: .touchUpInside)
+    func addVoteToPoll(with: String) {
+        let currentUser = activeConversation?.localParticipantIdentifier.uuidString
         
-        return button
+        print("The \(currentUser) wants to vote on \(with)")
     }
     
-    // User taps their choice and adds a vote
-    @objc func userChoiceButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
-        //newPoll.addVote(to: sender.currentTitle!, by: (currentConvo?.localParticipantIdentifier.uuidString)!)
-    }
-    
-    
+ 
     // MARK: - View Controller Selection
 /////////////////////////////////////////////////////////////////////
 
@@ -173,9 +159,9 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         guard let votingVC = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
             fatalError("Can'instantiate VotingViewController")
         }
-//        votingVC.delegate = self
+            votingVC.delegate = self
             votingVC.poll = poll
-        votingVC.currentConversation = currentConversation // TODO: currentconversation might be nil at this point
+            votingVC.currentConversation = activeConversation // TODO: currentconversation might be nil at this point
         
         /*
          this is worth's do code to handle adding a vote. 
@@ -211,10 +197,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         if let messageURL = conversation.selectedMessage?.url {
             decodeURL(with: messageURL)
             session = conversation.selectedMessage?.session
-            // build up the poll
-            for option in poll.list {
-                self.view.addSubview(makeButton(choice: option.key))
-            }
         }
        presentViewController(for: conversation, for: self.presentationStyle)
     }
