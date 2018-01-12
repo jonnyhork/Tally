@@ -8,12 +8,18 @@
 
 import UIKit
 
-class CustomCreatePollCell: UITableViewCell{
-   
+protocol CreatePollCellDelegate: class {
+    func addNewCell()
+}
 
+class CustomCreatePollCell: UITableViewCell {
+   
+  weak var delegate: CreatePollCellDelegate?
+    
     @IBOutlet weak var optionTextField: UITextField!
     
     @IBAction func detailButton(_ sender: UIButton) {
+        self.delegate?.addNewCell()
         print("detailButton Pressed")
     }
 

@@ -26,13 +26,13 @@ protocol CreatePollViewControllerDelegate: class {
     func newPollCreated(currentPoll: Poll)
 }
 
-class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, CreatePollCellDelegate {
+   
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var createPollTableView: UITableView!
     
-    var optionsArray: [String] = []
     var optionNumber = 0
+    var optionCount = 1
     var poll = Poll()
     
     weak var delegate: CreatePollViewControllerDelegate?
@@ -44,6 +44,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
         
+        
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
         
@@ -51,20 +52,25 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     //MARK: - TableView DataSource Methods
 /////////////////////////////////////////////////////////////////////
-    
+    func addNewCell() {
+        createPollTableView.beginUpdates()
+        optionCount += 1
+        createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
+        createPollTableView.endUpdates()
+    }
     
     //TODO: Declare cellForRowAtIndexPath here: triggered when the table view looks to find something to display
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
-        
+        cell.delegate = self
         return cell
     }
     
     //TODO: Declare numberOfRowsInSection here:
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return optionCount
     }
 
 /////////////////////////////////////////////////////////////////////
@@ -74,7 +80,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             let option = myCell.optionTextField.text
-//            optionsArray.append(option!)
             poll.addOption(toPoll: option!)
         }
         self.delegate?.newPollCreated(currentPoll: poll)
