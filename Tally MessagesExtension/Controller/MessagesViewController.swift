@@ -15,6 +15,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 
     var session: MSSession?
     var poll = Poll()
+    var currentVote: String?
+
     
     // MARK: - Message Construction
 /////////////////////////////////////////////////////////////////////
@@ -99,10 +101,16 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     
     func addVoteToPoll(userChoice: String) {
         guard let currentUser = activeConversation?.localParticipantIdentifier.uuidString else {fatalError("No Current User UUID to vote with")}
-    
-        // make sure the only vote one thing, remove the previous vote before added to the new vote
+        
+        if currentVote != nil {
+            poll.removeVote(from: currentVote!, by: currentUser)
+        }
         
         poll.addVote(to: userChoice, by: currentUser)
+        currentVote = userChoice
+        // make sure the only vote one thing, remove the previous vote before added to the new vote
+        
+        
         print("The \(currentUser) wants to vote on \(userChoice)")
     }
     

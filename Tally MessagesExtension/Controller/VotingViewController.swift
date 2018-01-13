@@ -73,7 +73,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       
         let selectedCell = votingTableView.cellForRow(at: indexPath) as! CustomVotingCell
         guard let selectedOption = selectedCell.votingOptionLabel.text else {fatalError("no slected option")}
         
