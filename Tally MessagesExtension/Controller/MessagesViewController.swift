@@ -64,7 +64,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             let message = MSMessage() //session: session! add this as an argument
                 message.layout = layout
                 message.url = url
-            
+    
             conversation.insert(message, completionHandler: { (error: NSError?) in
                 print(error!)
                 } as? (Error?) -> Void)
@@ -77,7 +77,11 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     
     // CompactVC delegate method
     func didPressCreatePoll() {
-        // need additional logic to always present newPoll VC when pressed, regaurdless of conversation?
+        /* need additional logic to always present newPoll VC when pressed, regaurdless of conversation?
+         Tried making the conversation perameter and optional and passing it as nil to get through the control flow but it messed with the rest of the app.
+        
+         presentViewController(for: nil, for: .expanded)
+        */
         requestPresentationStyle(.expanded)
     }
     
@@ -97,7 +101,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         newPollCreated(currentPoll: poll)
     }
     
-    // MARK: - Update Poll Sate
+    // MARK: - Update Poll State
 ///////////////////////////////////////////////////////////////////////
     
     func addVoteToPoll(userChoice: String) {
@@ -138,6 +142,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             child.view.removeFromSuperview()
             child.removeFromParentViewController()
         }
+        
         addChildViewController(controller)
         
         // constraints and view setup
