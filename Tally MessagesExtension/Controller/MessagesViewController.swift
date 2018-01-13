@@ -13,8 +13,8 @@ import ChameleonFramework
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate, votingViewControllerDelegate {
     
 
-    var session: MSSession?
     var poll = Poll()
+    var session: MSSession?
     var currentVote: String?
 
     
@@ -52,16 +52,16 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         
         if let conversation: MSConversation = activeConversation {
             
-            if session == nil {
-                session = MSSession()
-            }
+//            if session == nil {
+//                session = MSSession()
+//            }
             
             let layout = MSMessageTemplateLayout()
                 layout.caption = "What's the Tally?"
                 layout.subcaption = "make your choice"
                 layout.image = UIImage(named: "bar-chart")
             
-            let message = MSMessage(session: session!)
+            let message = MSMessage() //session: session! add this as an argument
                 message.layout = layout
                 message.url = url
             
@@ -77,6 +77,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     
     // CompactVC delegate method
     func didPressCreatePoll() {
+        // need additional logic to always present newPoll VC when pressed, regaurdless of conversation?
         requestPresentationStyle(.expanded)
     }
     
@@ -210,8 +211,9 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
-        
         // Use this method to configure the extension and restore previously stored state.
+       
+        // This is the starting point for a conversation.
         if let messageURL = conversation.selectedMessage?.url {
             decodeURL(with: messageURL)
             session = conversation.selectedMessage?.session
