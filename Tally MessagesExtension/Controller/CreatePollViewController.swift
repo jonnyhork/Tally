@@ -44,7 +44,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
-        createPollTableView.allowsSelection = false
+        
         
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
@@ -60,6 +60,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
         
         cell.optionTextField.delegate = self
+        cell.selectionStyle = .none
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
         bottomTextField = cell.optionTextField
         
@@ -67,7 +68,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     }
     
     // Declare numberOfRowsInSection here:
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionCount
     }
@@ -98,6 +98,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
   
 } // end of class
 
+//MARK: - TextField Delegate Methods
 extension CreatePollViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField === bottomTextField, textField.text?.isEmpty == true {
