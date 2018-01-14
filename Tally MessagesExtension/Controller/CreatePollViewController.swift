@@ -31,6 +31,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var createPollTableView: UITableView!
     
+    @IBOutlet weak var pollTitleTextField: UITextField!
     
     var optionCount = 2
     var bottomTextField: UITextField?
@@ -117,6 +118,7 @@ extension CreatePollViewController: UITextFieldDelegate {
         
 //        textField.backgroundColor = .lightGray
         if textField === bottomTextField, textField.text?.isEmpty == true {
+            
             bottomTextField = nil
             addNewCell()
         }

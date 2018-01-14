@@ -124,6 +124,12 @@
                                     <action selector="sendButtonPressed:" destination="uTu-dJ-Shh" eventType="touchUpInside" id="NKu-hQ-p1n"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a Title" minimumFontSize="17" background="tally-logo" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-jf-t5j">
+                                <rect key="frame" x="16" y="23" width="98.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -135,6 +141,8 @@
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" id="Qxq-cU-XMn"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" constant="16" id="Uks-6I-mPp"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="Qwh-hM-EmZ" secondAttribute="leading" id="WNh-lU-2G0"/>
+                            <constraint firstItem="w3W-jf-t5j" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="YAO-za-Rwz"/>
+                            <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="w3W-jf-t5j" secondAttribute="bottom" constant="8" id="mkA-SO-nWP"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="top" secondItem="Qwh-hM-EmZ" secondAttribute="bottom" constant="8" symbolic="YES" id="sON-Dj-PEh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sR1-Ic-Tiu"/>
@@ -142,6 +150,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="createPollTableView" destination="xXl-E8-VZN" id="m6U-lk-ujo"/>
+                        <outlet property="pollTitleTextField" destination="w3W-jf-t5j" id="vbI-kQ-MCP"/>
                         <outlet property="sendButton" destination="JIO-hf-oP1" id="Rnf-9z-fZM"/>
                     </connections>
                 </viewController>
@@ -205,4 +214,7 @@
             <point key="canvasLocation" x="2317.5999999999999" y="193.85307346326837"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tally-logo" width="265" height="240"/>
+    </resources>
 </document>
