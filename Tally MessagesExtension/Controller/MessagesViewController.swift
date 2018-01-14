@@ -23,6 +23,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 //    var poll = Poll()
     var session: MSSession?
     var currentVote: String?
+    var pollTitle: String?
     var appState = AppState.unknown
 
     
@@ -37,23 +38,30 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             URLQueryItem(name: option.key , value: option.value.joined(separator: ","))
         }
         
+        components.queryItems?.append(URLQueryItem(name: "USER_TITLE", value: pollTitle))
+        
         return components.url!
     }
     
     func decodeURL(with url: URL) -> Poll {
-        var poll = Poll(list: [:])
+        var poll = Poll(list: [:], title: nil)
         
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("There are no components in the message")
         }
         
         for choice in components.queryItems! {
-            poll = poll.addOption(toPoll: choice.name)
-            
-            choice.value?.split(separator: ",").forEach { voter in
-                poll = poll.addVote(to: choice.name, by: String(voter))
+            if choice.name == "USER_TITLE" {
+                poll.title = choice.value
+            } else {
+                poll = poll.addOption(toPoll: choice.name)
+                
+                choice.value?.split(separator: ",").forEach { voter in
+                    poll = poll.addVote(to: choice.name, by: String(voter))
+                }
             }
         }
+        
         dump(poll, name: "Sate of Poll in decodeURL", indent: 2)
         
         return poll
@@ -69,7 +77,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             
             let layout = MSMessageTemplateLayout()
                 layout.caption = "What's the Tally?"
-                layout.subcaption = "make your choice"
+                layout.subcaption = pollTitle
                 layout.image = UIImage(named: "tally-logo")
             
             
@@ -92,7 +100,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     /// state affecting
     func didPressCreatePoll() {
         
-        appState = .createPoll(Poll(list: [:]))
+        appState = .createPoll(Poll(list: [:], title: nil ))
         requestPresentationStyle(.expanded)
     }
     
@@ -101,10 +109,10 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     func newPollCreated(currentPoll: Poll) {
         
         appState = .createPoll(currentPoll)
-        
+        pollTitle = currentPoll.title
         let url = prepareURL(from: currentPoll)
         prepareMessage(with: url)
-        dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
+        dump(appState, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
     func sendUpdatedPoll() {

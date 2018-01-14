@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -166,17 +167,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
-                                <rect key="frame" x="146.5" y="27" width="100" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                <color key="textColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
-                                <rect key="frame" x="277" y="281" width="63" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
+                                <rect key="frame" x="277" y="281" width="63" height="35"/>
                                 <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Vkp-DM-S0l"/>
+                                    <constraint firstAttribute="width" constant="63" id="cNe-oT-ABj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,10 +182,12 @@
                                     <action selector="sendButtonPressed:" destination="6bd-aC-yjb" eventType="touchUpInside" id="zDV-A0-BtP"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">
                                 <rect key="frame" x="16" y="58" width="343" height="201"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="201" id="L7N-YM-hfH"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="votingCell" id="mO9-Wa-9lD">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
@@ -201,11 +200,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to vote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
+                                <rect key="frame" x="72" y="20" width="231" height="23"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" id="AM8-ux-6q2"/>
+                            <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="RKW-Ic-wUl" secondAttribute="trailing" constant="72" id="CC2-kT-Cpc"/>
+                            <constraint firstItem="RKW-Ic-wUl" firstAttribute="leading" secondItem="0qT-6P-F3f" secondAttribute="leading" constant="72" id="PzR-kh-0qU"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="58" id="Q29-cG-s0O"/>
+                            <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="O1d-PW-KLV" secondAttribute="bottom" constant="22" id="UUi-6v-s8Q"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="15" id="Zil-Ov-wyS"/>
+                            <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="HEc-3a-aoO" secondAttribute="trailing" constant="35" id="gru-jR-2i1"/>
+                            <constraint firstItem="RKW-Ic-wUl" firstAttribute="centerX" secondItem="3ug-OP-DQp" secondAttribute="centerX" id="wBk-3h-jGM"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="centerX" secondItem="RKW-Ic-wUl" secondAttribute="centerX" id="wNH-WD-nBx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0qT-6P-F3f"/>
                     </view>
                     <connections>
+                        <outlet property="pollTitle" destination="RKW-Ic-wUl" id="Hug-89-7PO"/>
                         <outlet property="votingTableView" destination="O1d-PW-KLV" id="AUm-aU-o7p"/>
                     </connections>
                 </viewController>

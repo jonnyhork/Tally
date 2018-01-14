@@ -29,6 +29,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     @IBOutlet weak var votingTableView: UITableView!
     
+    @IBOutlet weak var pollTitle: UILabel!
     var poll: Poll? {
         didSet {
             votingTableView?.reloadData()
@@ -44,6 +45,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         //TODO: Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self
+        pollTitle.text = poll?.title
         
         //TODO: Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")

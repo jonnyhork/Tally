@@ -30,7 +30,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
    
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var createPollTableView: UITableView!
-    
     @IBOutlet weak var pollTitleTextField: UITextField!
     
     var optionCount = 2
@@ -94,13 +93,18 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
                 poll = poll.addOption(toPoll: optionText)
             }
         }
+        
+        if pollTitleTextField.text?.isEmpty == false {
+            poll.title = pollTitleTextField.text
+        }
+        
         self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
     }
   
 } // end of class
 
-//MARK: - TextField Delegate Methods
+// MARK: - TextField Delegate Methods
 extension CreatePollViewController: UITextFieldDelegate {
     
     // build up poll in real time?
