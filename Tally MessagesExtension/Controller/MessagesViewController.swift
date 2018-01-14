@@ -23,7 +23,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 //    var poll = Poll()
     var session: MSSession?
     var currentVote: String?
-    var pollTitle: String?
+    var pollTitle: String? 
     var appState = AppState.unknown
 
     
@@ -77,8 +77,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             
             let layout = MSMessageTemplateLayout()
                 layout.caption = "What's the Tally?"
-                layout.subcaption = pollTitle
-                layout.image = UIImage(named: "tally-logo")
+                layout.subcaption = pollTitle ?? "make your choice 👆"
+//                layout.image = UIImage(named: "tally-logo")
             
             
             
