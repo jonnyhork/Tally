@@ -8,22 +8,28 @@
 
 import UIKit
 
-class Poll {
+struct Poll {
     // list is a dictionary with option title as keys, a set<String> as values, representing votes
-    var list = [String:Set<String>]()
+    let list : [String:Set<String>]
     
-    func addOption(toPoll optionText: String) {
+    func addOption(toPoll optionText: String) -> Poll {
         // force optiontext lowercase
-        list[optionText.lowercased()] = Set<String>()
+        var listCopy = list
+        listCopy[optionText.lowercased()] = Set<String>()
+        return Poll(list: listCopy)
     }
     
-    func addVote(to optionText: String, by userName: String) {
+    func addVote(to optionText: String, by userName: String) -> Poll {
         // force optionText loewer case
-        list[optionText.lowercased()]?.insert(userName)
+        var listCopy = list
+        listCopy[optionText.lowercased()]?.insert(userName)
+        return Poll(list: listCopy)
     }
     
-    func removeVote(from optionText: String, by userName: String) {
-        list[optionText.lowercased()]?.remove(userName)
+    func removeVote(from optionText: String, by userName: String) -> Poll {
+        var listCopy = list
+        listCopy[optionText.lowercased()]?.remove(userName)
+        return Poll(list: listCopy)
     }
     
     func count(votes optionText: String) -> Int {

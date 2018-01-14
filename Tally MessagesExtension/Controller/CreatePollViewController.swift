@@ -34,7 +34,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     var optionCount = 2
     var bottomTextField: UITextField?
-    var poll = Poll()
+    var poll: Poll!
     
     weak var delegate: CreatePollViewControllerDelegate?
     
@@ -58,6 +58,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
+        
+//        cell.optionTextField.layer.cornerRadius = 7.0
         
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
@@ -87,9 +89,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             
             // if the textfield is empty then don't add it to the poll
-            if (myCell.optionTextField.text?.isEmpty == false) {
-                let option = myCell.optionTextField.text
-                poll.addOption(toPoll: option!)
+            if let optionText = myCell.optionTextField.text, optionText.isEmpty == false {
+                poll = poll.addOption(toPoll: optionText)
             }
         }
         self.delegate?.newPollCreated(currentPoll: poll)
@@ -100,7 +101,21 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
 
 //MARK: - TextField Delegate Methods
 extension CreatePollViewController: UITextFieldDelegate {
+    
+    // build up poll in real time?
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textField.text
+//    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        bottomTextField?.becomeFirstResponder()
+        
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+//        textField.backgroundColor = .lightGray
         if textField === bottomTextField, textField.text?.isEmpty == true {
             bottomTextField = nil
             addNewCell()

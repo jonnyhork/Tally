@@ -10,19 +10,31 @@ import UIKit
 
 class CustomVotingCell: UITableViewCell {
 
+    private(set) var option: String?
+    private(set) var numberOfVotes: Int?
     
-    @IBOutlet weak var votingOptionLabel: UILabel!
-    @IBOutlet weak var totalVotesLabel: UILabel!
+    @IBOutlet private weak var votingOptionLabel: UILabel!
+    @IBOutlet private weak var totalVotesLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(option: String, tally: Int) {
+        if numberOfVotes != tally {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }, completion: { _ in
+                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            })
+        }
+        
+        self.option = option
+        self.numberOfVotes = tally
+        
+        votingOptionLabel.text = option
+        totalVotesLabel.text = "\(tally)"
     }
     
 }

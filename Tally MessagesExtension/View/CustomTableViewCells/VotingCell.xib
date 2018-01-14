@@ -37,7 +37,7 @@
                         <size key="shadowOffset" width="1" height="1"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="1aW-uS-Zca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1y0-K8-I4R"/>
                     <constraint firstItem="dhs-zB-F9E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8dM-DP-9Pt"/>

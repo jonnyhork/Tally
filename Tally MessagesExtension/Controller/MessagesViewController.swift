@@ -10,18 +10,26 @@ import UIKit
 import Messages
 import ChameleonFramework
 
+enum AppState {
+    case voting(Poll)
+    case createPoll(Poll)
+    case canCreatePoll(Poll?)
+    case unknown
+}
+
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate, votingViewControllerDelegate {
     
 
-    var poll = Poll()
+//    var poll = Poll()
     var session: MSSession?
     var currentVote: String?
+    var appState = AppState.unknown
 
     
     // MARK: - Message Construction
 /////////////////////////////////////////////////////////////////////
 
-    func prepareURL() -> URL {
+    func prepareURL(from poll: Poll) -> URL {
         
         var components = URLComponents()
 
@@ -32,20 +40,23 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         return components.url!
     }
     
-    func decodeURL(with url: URL) {
-    
+    func decodeURL(with url: URL) -> Poll {
+        var poll = Poll(list: [:])
+        
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("There are no components in the message")
         }
         
         for choice in components.queryItems! {
-            poll.addOption(toPoll: choice.name)
+            poll = poll.addOption(toPoll: choice.name)
             
             choice.value?.split(separator: ",").forEach { voter in
-                poll.addVote(to: choice.name, by: String(voter))
+                poll = poll.addVote(to: choice.name, by: String(voter))
             }
         }
         dump(poll, name: "Sate of Poll in decodeURL", indent: 2)
+        
+        return poll
     }
     
     func prepareMessage(with url: URL) {
@@ -76,12 +87,23 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 /////////////////////////////////////////////////////////////////////
     
     // CompactVC delegate method
+    /// state affecting
     func didPressCreatePoll() {
         /* need additional logic to always present newPoll VC when pressed, regaurdless of conversation?
          Tried making the conversation perameter and optional and passing it as nil to get through the control flow but it messed with the rest of the app.
         
          presentViewController(for: nil, for: .expanded)
         */
+        
+//        if let current = currentlyPresentedVC {
+//            current.view.removeFromSuperview()
+//            current.removeFromParentViewController()
+//
+//            let new = instantiateCreatePollVC()
+//            addControllerToView(new)
+//            return
+//        }
+        appState = .createPoll(Poll(list: [:]))
         requestPresentationStyle(.expanded)
     }
     
@@ -91,31 +113,38 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 //        for option in pollOptions {
 //            poll.addOption(toPoll: option)
 //        }
-        poll = currentPoll
-        let url = prepareURL()
+//        poll = currentPoll
+        appState = .createPoll(currentPoll)
+        
+        let url = prepareURL(from: currentPoll)
         prepareMessage(with: url)
         dump(poll, name: "Sate of Poll in newPollCreated", indent: 2)
     }
     
     func sendUpdatedPoll() {
+        guard case .voting(let poll) = appState else { return }
+        
         newPollCreated(currentPoll: poll)
     }
     
     // MARK: - Update Poll State
 ///////////////////////////////////////////////////////////////////////
     
-    func addVoteToPoll(userChoice: String) {
-        guard let currentUser = activeConversation?.localParticipantIdentifier.uuidString else {fatalError("No Current User UUID to vote with")}
+    func addVoteToPoll(userChoice: String, instance: VotingViewController) {
+        guard case .voting(var poll) = appState else { return }
+        
+        guard let currentUser = activeConversation?.localParticipantIdentifier.uuidString else { return }
         
         if currentVote != nil {
-            poll.removeVote(from: currentVote!, by: currentUser)
+            poll = poll.removeVote(from: currentVote!, by: currentUser)
         }
         
-        poll.addVote(to: userChoice, by: currentUser)
+        poll = poll.addVote(to: userChoice, by: currentUser)
         currentVote = userChoice
         // make sure the only vote one thing, remove the previous vote before added to the new vote
         
-        
+        appState = .voting(poll)
+        instance.poll = poll
         print("The \(currentUser) wants to vote on \(userChoice)")
     }
     
@@ -123,26 +152,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // MARK: - View Controller Selection
 /////////////////////////////////////////////////////////////////////
 
-    func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
-        
-        var controller: UIViewController!
-        
-        // Display the correct view controller
-        if presentationStyle == .compact {
-            controller = instantiateCompactVC()
-        } else if (conversation.selectedMessage != nil) && presentationStyle == .expanded {
-            controller = instantiateVotingVC(with: poll)
-        } else {
-            controller = instantiateCreatePollVC()
-        }
-        
-        // remove any existing controllers
-        for child in childViewControllers {
-            child.willMove(toParentViewController: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParentViewController()
-        }
-        
+    var currentlyPresentedVC: UIViewController?
+    fileprivate func addControllerToView(_ controller: UIViewController) {
         addChildViewController(controller)
         
         // constraints and view setup
@@ -156,6 +167,39 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         controller.didMove(toParentViewController: self)
+    }
+    
+    func presentViewController(for conversation: MSConversation, for presentationStyle: MSMessagesAppPresentationStyle) {
+        
+        let controller: UIViewController
+        
+        switch presentationStyle {
+        case .compact:
+            controller = instantiateCompactVC()
+        case .expanded:
+            switch appState {
+            case .voting(let poll):
+                controller = instantiateVotingVC(with: poll)
+            case .createPoll(let poll):
+                controller = instantiateCreatePollVC(poll: poll)
+            case .canCreatePoll:
+                controller = instantiateCompactVC()
+            case .unknown:
+                fatalError("no state")
+            }
+        default:
+            fatalError("unsupported")
+        }
+        
+        // remove any existing controllers
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        
+        addControllerToView(controller)
+        currentlyPresentedVC = controller
     }
    
 
@@ -172,15 +216,17 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         return compactVC
     }
     
-    private func instantiateCreatePollVC() -> UIViewController {
+    private func instantiateCreatePollVC(poll: Poll) -> UIViewController {
         guard let createPollVC = self.storyboard?.instantiateViewController(withIdentifier: "CreatePollViewController") as? CreatePollViewController else {
             fatalError("Can'instantiate CreatePollViewController")
         }
+        
+        createPollVC.poll = poll
         createPollVC.delegate = self
         return createPollVC
     }
     
-    private func instantiateVotingVC(with: Poll) -> UIViewController {
+    private func instantiateVotingVC(with poll: Poll) -> UIViewController {
         guard let votingVC = self.storyboard?.instantiateViewController(withIdentifier: "VotingViewController") as? VotingViewController else {
             fatalError("Can'instantiate VotingViewController")
         }
@@ -188,7 +234,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             votingVC.poll = poll
         
         /*
-         this is worth's do code to handle adding a vote. 
+        do code to handle adding a vote. 
         votingVC.voteAction = { [weak self] newPoll in
             // do thing with poll
         }
@@ -213,16 +259,22 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 /////////////////////////////////////////////////////////////////////
 
     
+    
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
         // Use this method to configure the extension and restore previously stored state.
        
         // This is the starting point for a conversation.
+        
         if let messageURL = conversation.selectedMessage?.url {
-            decodeURL(with: messageURL)
+            let votingPoll = decodeURL(with: messageURL)
+            appState = .voting(votingPoll)
             session = conversation.selectedMessage?.session
+        } else {
+            appState = .canCreatePoll(nil)
         }
+        
        presentViewController(for: conversation, for: self.presentationStyle)
     }
     

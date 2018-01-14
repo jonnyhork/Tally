@@ -85,7 +85,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
                                 <rect key="frame" x="16" y="90" width="343" height="208"/>
                                 <color key="backgroundColor" red="0.66902792450000004" green="0.73128575090000003" blue="0.9488992691" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
-                                <rect key="frame" x="299" y="317" width="46" height="33"/>
+                                <rect key="frame" x="303" y="317" width="42" height="33"/>
                                 <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Send">
@@ -135,11 +135,11 @@
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" id="Qxq-cU-XMn"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" constant="16" id="Uks-6I-mPp"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="Qwh-hM-EmZ" secondAttribute="leading" id="WNh-lU-2G0"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="299" id="oWr-SF-rVD"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="top" secondItem="Qwh-hM-EmZ" secondAttribute="bottom" constant="8" symbolic="YES" id="sON-Dj-PEh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sR1-Ic-Tiu"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="createPollTableView" destination="xXl-E8-VZN" id="m6U-lk-ujo"/>
                         <outlet property="sendButton" destination="JIO-hf-oP1" id="Rnf-9z-fZM"/>

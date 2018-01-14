@@ -20,7 +20,7 @@ import Messages
 import ChameleonFramework
 
 protocol votingViewControllerDelegate: class {
-    func addVoteToPoll(userChoice: String)
+    func addVoteToPoll(userChoice: String, instance: VotingViewController)
     func sendUpdatedPoll()
 }
 
@@ -29,7 +29,12 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     @IBOutlet weak var votingTableView: UITableView!
     
-    var poll: Poll?
+    var poll: Poll? {
+        didSet {
+            votingTableView?.reloadData()
+        }
+    }
+    
     var currentConversation: MSConversation?
     weak var delegate: votingViewControllerDelegate?
   
@@ -60,8 +65,9 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         }
         
         let (key, value) = pollArray[indexPath.row]
-        cell.votingOptionLabel.text = key
-        cell.totalVotesLabel.text = String(value.count)
+//        cell.votingOptionLabel.text = key
+//        cell.totalVotesLabel.text = String(value.count)
+        cell.configure(option: key, tally: value.count)
 
         return cell
     }
@@ -75,11 +81,10 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         let selectedCell = votingTableView.cellForRow(at: indexPath) as! CustomVotingCell
-        guard let selectedOption = selectedCell.votingOptionLabel.text else {fatalError("no slected option")}
+        guard let option = selectedCell.option else { return }
         
         // make a call to add a vote to the option
-        self.delegate?.addVoteToPoll(userChoice: selectedOption)
-        votingTableView.reloadData()
+        self.delegate?.addVoteToPoll(userChoice: option, instance: self)
     }
 
     @IBAction func sendButtonPressed(_ sender: UIButton) {
