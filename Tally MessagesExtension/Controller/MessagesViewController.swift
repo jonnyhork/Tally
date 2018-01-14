@@ -70,7 +70,9 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             let layout = MSMessageTemplateLayout()
                 layout.caption = "What's the Tally?"
                 layout.subcaption = "make your choice"
-                layout.image = UIImage(named: "bar-chart")
+                layout.image = UIImage(named: "tally-logo")
+            
+            
             
             let message = MSMessage() //session: session! add this as an argument
                 message.layout = layout
@@ -89,31 +91,15 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // CompactVC delegate method
     /// state affecting
     func didPressCreatePoll() {
-        /* need additional logic to always present newPoll VC when pressed, regaurdless of conversation?
-         Tried making the conversation perameter and optional and passing it as nil to get through the control flow but it messed with the rest of the app.
         
-         presentViewController(for: nil, for: .expanded)
-        */
-        
-//        if let current = currentlyPresentedVC {
-//            current.view.removeFromSuperview()
-//            current.removeFromParentViewController()
-//
-//            let new = instantiateCreatePollVC()
-//            addControllerToView(new)
-//            return
-//        }
         appState = .createPoll(Poll(list: [:]))
         requestPresentationStyle(.expanded)
     }
     
     // CreatePollVC delegate method
+    /// state affecting
     func newPollCreated(currentPoll: Poll) {
-        // build up the poll obj with the choices passed in
-//        for option in pollOptions {
-//            poll.addOption(toPoll: option)
-//        }
-//        poll = currentPoll
+        
         appState = .createPoll(currentPoll)
         
         let url = prepareURL(from: currentPoll)
@@ -153,6 +139,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
 /////////////////////////////////////////////////////////////////////
 
     var currentlyPresentedVC: UIViewController?
+    
+    /// Resizes the controller constraints to fit the screen
     fileprivate func addControllerToView(_ controller: UIViewController) {
         addChildViewController(controller)
         
