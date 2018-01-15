@@ -44,8 +44,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
-        createPollTableView.layer.cornerRadius = 15
-        createPollTableView.clipsToBounds = true
+//        createPollTableView.layer.cornerRadius = 15
+//        createPollTableView.clipsToBounds = true
 //        createPollTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         
@@ -68,9 +68,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         cell.selectionStyle = .none
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
         cell.optionTextField.tintColor = .black
-//        if (cell.optionTextField.text?.isEmpty)! {
-//            cell.optionTextField.backgroundColor = UIColor.flatGray()
-//        }
         bottomTextField = cell.optionTextField
         
         return cell
@@ -121,9 +118,9 @@ extension CreatePollViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    
+        
+        textField.backgroundColor = UIColor.white
         if textField === bottomTextField, textField.text?.isEmpty == true {
-//            textField.backgroundColor = UIColor.black.darken(byPercentage: 5.0)
             bottomTextField = nil
             addNewCell()
         }
