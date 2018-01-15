@@ -14,7 +14,6 @@ enum AppState {
     case voting(Poll)
     case createPoll(Poll)
     case canCreatePoll(Poll?)
-    case pollCreationInProgress(Poll?)
     case unknown
 }
 
@@ -80,8 +79,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 layout.caption = "What's the Tally?"
                 layout.subcaption = pollTitle ?? "make your choice 👆"
 //                layout.image = UIImage(named: "tally-logo")
-            
-            
             
             let message = MSMessage() //session: session! add this as an argument
                 message.layout = layout
@@ -179,8 +176,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 controller = instantiateVotingVC(with: poll)
             case .createPoll(let poll):
                 controller = instantiateCreatePollVC(poll: poll)
-            case .pollCreationInProgress(let poll):
-                controller = instantiateCreatePollVC(poll: poll!)
             case .canCreatePoll:
                 controller = instantiateCompactVC()
             case .unknown:
@@ -220,8 +215,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             fatalError("Can'instantiate CreatePollViewController")
         }
         
-        // if the appState is .pollCreationInProgess then route to the creatPollVC but populate the TF with the current poll data.
-        
         createPollVC.poll = poll
         createPollVC.delegate = self
         return createPollVC
@@ -253,8 +246,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // MARK: - Conversation Handling
 /////////////////////////////////////////////////////////////////////
 
-    
-    
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.

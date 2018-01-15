@@ -85,7 +85,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     /////////////////////////////////////////////////////////////////////
     
     fileprivate func updatePollState() {
-        // Send the poll options and package the message
+        
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             
@@ -102,7 +102,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        
+        updatePollState()
+        // Send the poll options and package the message
         self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
     }
@@ -112,11 +113,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
 // MARK: - TextField Delegate Methods
 extension CreatePollViewController: UITextFieldDelegate {
     
-//     build up poll in real time?
-    func textFieldDidEndEditing(_ textField: UITextField) {
-       updatePollState()
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         bottomTextField?.becomeFirstResponder()
         
@@ -125,7 +121,6 @@ extension CreatePollViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-//        textField.backgroundColor = .lightGray
         if textField === bottomTextField, textField.text?.isEmpty == true {
             
             bottomTextField = nil
