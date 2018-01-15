@@ -67,7 +67,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
-        cell.optionTextField.tintColor = .black
+        cell.optionTextField.tintColor = .blue
         bottomTextField = cell.optionTextField
         
         return cell

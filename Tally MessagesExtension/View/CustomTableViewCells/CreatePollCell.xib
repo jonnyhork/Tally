@@ -30,7 +30,7 @@
                         <color key="backgroundColor" red="0.95161171470000006" green="0.94604673390000005" blue="0.95717669549999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                        <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                        <textInputTraits key="textInputTraits" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                     </textField>
                 </subviews>
                 <color key="backgroundColor" red="0.95161171470000006" green="0.94604673390000005" blue="0.95717669549999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
