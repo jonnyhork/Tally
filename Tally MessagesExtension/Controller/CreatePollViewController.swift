@@ -124,7 +124,7 @@ extension CreatePollViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        textField.backgroundColor = UIColor.white
+        textField.backgroundColor = UIColor(hexString: "DACED8", withAlpha: 0.2)
         if textField === bottomTextField, textField.text?.isEmpty == true {
             bottomTextField = nil
             addNewCell()

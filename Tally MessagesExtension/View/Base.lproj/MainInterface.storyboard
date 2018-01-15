@@ -87,17 +87,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
-                                <rect key="frame" x="16" y="90" width="343" height="208"/>
+                                <rect key="frame" x="16" y="90" width="290" height="211"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="208" id="WOY-zt-Rnr"/>
+                                    <constraint firstAttribute="width" constant="290" id="MOp-xP-zaC"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="createPollCell" id="AL9-9c-JHZ">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="createPollCell" rowHeight="40" id="AL9-9c-JHZ">
+                                        <rect key="frame" x="0.0" y="28" width="290" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AL9-9c-JHZ" id="48a-Tt-EUX">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="tintColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -115,8 +115,16 @@
                                 <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a Title..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-jf-t5j">
+                                <rect key="frame" x="16" y="23" width="122" height="30"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
-                                <rect key="frame" x="303" y="317" width="42" height="33"/>
+                                <rect key="frame" x="264" y="331" width="42" height="33"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Send">
@@ -126,28 +134,22 @@
                                     <action selector="sendButtonPressed:" destination="uTu-dJ-Shh" eventType="touchUpInside" id="NKu-hQ-p1n"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a Title..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-jf-t5j">
-                                <rect key="frame" x="16" y="23" width="122" height="30"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="7r8-Ia-G3h"/>
-                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="JIO-hf-oP1" secondAttribute="trailing" constant="30" id="DaM-0Y-2yk"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="bottom" secondItem="JIO-hf-oP1" secondAttribute="bottom" constant="303" id="EL7-4b-ghx"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="sR1-Ic-Tiu" secondAttribute="top" constant="41" id="GWM-vl-7K2"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="centerY" secondItem="b5D-AM-PMf" secondAttribute="centerY" id="LGU-9i-wfl"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="xXl-E8-VZN" secondAttribute="trailing" constant="69" id="LXI-RB-iTN"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="centerX" secondItem="b5D-AM-PMf" secondAttribute="centerX" id="QqM-0i-eYz"/>
-                            <constraint firstItem="xXl-E8-VZN" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" id="Qxq-cU-XMn"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="top" secondItem="xXl-E8-VZN" secondAttribute="bottom" constant="30" id="Tej-TP-TfV"/>
+                            <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="Tp2-Dw-QbP"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" constant="16" id="Uks-6I-mPp"/>
-                            <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="Qwh-hM-EmZ" secondAttribute="leading" id="WNh-lU-2G0"/>
                             <constraint firstItem="w3W-jf-t5j" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="YAO-za-Rwz"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="264" id="gZs-ez-3EU"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="JIO-hf-oP1" secondAttribute="trailing" constant="69" id="kPS-0M-ByZ"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="w3W-jf-t5j" secondAttribute="bottom" constant="8" id="mkA-SO-nWP"/>
-                            <constraint firstItem="xXl-E8-VZN" firstAttribute="top" secondItem="Qwh-hM-EmZ" secondAttribute="bottom" constant="8" symbolic="YES" id="sON-Dj-PEh"/>
+                            <constraint firstItem="xXl-E8-VZN" firstAttribute="top" secondItem="Qwh-hM-EmZ" secondAttribute="bottom" constant="8" id="tlN-1U-3nD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sR1-Ic-Tiu"/>
                     </view>

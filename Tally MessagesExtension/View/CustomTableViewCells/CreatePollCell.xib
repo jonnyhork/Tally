@@ -24,21 +24,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="44.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option #" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="swR-Hf-37W" userLabel="Option Text Field">
-                        <rect key="frame" x="10" y="0.0" width="320" height="44.5"/>
-                        <color key="backgroundColor" red="0.87843137250000003" green="0.83137254900000002" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option #" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="swR-Hf-37W" userLabel="Option Text Field">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.83137254900000002" blue="0.87058823529999996" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <textInputTraits key="textInputTraits" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                     </textField>
                 </subviews>
                 <color key="backgroundColor" red="0.87843137250000003" green="0.83137254900000002" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="swR-Hf-37W" secondAttribute="trailing" id="FFl-IR-gc5"/>
-                    <constraint firstItem="swR-Hf-37W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KpU-3i-Oqo"/>
-                    <constraint firstItem="swR-Hf-37W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VQL-tK-HG2"/>
-                    <constraint firstAttribute="bottom" secondItem="swR-Hf-37W" secondAttribute="bottom" id="oSh-2b-BF5"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
