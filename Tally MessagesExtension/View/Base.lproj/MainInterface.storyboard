@@ -86,8 +86,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
-                                <rect key="frame" x="16" y="90" width="290" height="211"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
+                                <rect key="frame" x="16" y="90" width="290" height="254"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="MOp-xP-zaC"/>
@@ -126,8 +126,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
-                                <rect key="frame" x="264" y="331" width="42" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
+                                <rect key="frame" x="264" y="352" width="42" height="33"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Send">
@@ -145,7 +145,7 @@
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="sR1-Ic-Tiu" secondAttribute="top" constant="41" id="GWM-vl-7K2"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="xXl-E8-VZN" secondAttribute="trailing" constant="69" id="LXI-RB-iTN"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="centerX" secondItem="b5D-AM-PMf" secondAttribute="centerX" id="QqM-0i-eYz"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="top" secondItem="xXl-E8-VZN" secondAttribute="bottom" constant="30" id="Tej-TP-TfV"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="top" secondItem="xXl-E8-VZN" secondAttribute="bottom" constant="8" id="Tej-TP-TfV"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="Tp2-Dw-QbP"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" constant="16" id="Uks-6I-mPp"/>
                             <constraint firstItem="w3W-jf-t5j" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="YAO-za-Rwz"/>

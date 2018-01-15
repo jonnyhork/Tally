@@ -40,15 +40,11 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sendButton.isHidden = true
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
-//        createPollTableView.layer.cornerRadius = 15
-//        createPollTableView.clipsToBounds = true
-//        createPollTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        
-        
+
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
         
@@ -62,12 +58,15 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
         
+//        createPollTableView.frame.height = (cell.frame.height * optionCount)
+        
         cell.optionTextField.layer.cornerRadius = 7.0
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
-        cell.optionTextField.placeholder = " Option \(createPollTableView.visibleCells.count + 1)"
+        cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
         cell.optionTextField.tintColor = HexColor("3B5998")
         bottomTextField = cell.optionTextField
+        
         
         return cell
     }
@@ -82,6 +81,22 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         optionCount += 1
         createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
         createPollTableView.endUpdates()
+    }
+    
+    func checkTF() -> Bool {
+        var counter = 0
+        for cell in createPollTableView.visibleCells   {
+            guard let myCell = cell as? CustomCreatePollCell else {continue}
+            
+            if !(myCell.optionTextField.text?.isEmpty)! {
+                counter += 1
+            }
+            
+            if counter >= 2 {
+                return true
+            }
+        }
+        return false
     }
     
     /////////////////////////////////////////////////////////////////////
@@ -121,9 +136,13 @@ extension CreatePollViewController: UITextFieldDelegate {
         return true
     }
     
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        sendButton.isHidden = !checkTF()
+        
         textField.backgroundColor = UIColor(hexString: "DACED8", withAlpha: 0.1)
+        
         if textField === bottomTextField, textField.text?.isEmpty == true {
             bottomTextField = nil
             addNewCell()

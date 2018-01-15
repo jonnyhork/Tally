@@ -258,7 +258,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         } else {
             appState = .canCreatePoll(nil)
         }
-        
        presentViewController(for: conversation, for: self.presentationStyle)
     }
     
