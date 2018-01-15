@@ -62,7 +62,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             }
         }
         
-        dump(poll, name: "Sate of Poll in decodeURL", indent: 2)
+        dump(poll, name: "SATE OF POLL IN DecodeURL\n", indent: 2)
         
         return poll
     }
@@ -110,7 +110,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         pollTitle = currentPoll.title
         let url = prepareURL(from: currentPoll)
         prepareMessage(with: url)
-        dump(appState, name: "Sate of Poll in newPollCreated", indent: 2)
+        dump(appState, name: "SATE OF POLL IN NewPollCreated\n", indent: 2)
     }
     
     func sendUpdatedPoll() {
