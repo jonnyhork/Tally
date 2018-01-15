@@ -19,8 +19,6 @@ enum AppState {
 
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate, votingViewControllerDelegate {
     
-
-//    var poll = Poll()
     var session: MSSession?
     var currentVote: String?
     var pollTitle: String? 

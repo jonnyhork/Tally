@@ -33,7 +33,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     @IBOutlet weak var pollTitleTextField: UITextField!
     
     var optionCount = 2
-    var bottomTextField: UITextField?
+    var bottomTextField: UITextField? // keep a reference to the most recently created textfield
     var poll: Poll!
     
     weak var delegate: CreatePollViewControllerDelegate?
@@ -44,6 +44,9 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
+        createPollTableView.layer.cornerRadius = 15
+        createPollTableView.clipsToBounds = true
+//        createPollTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         
         //TODO: Register your MessageCell.xib file here:
@@ -64,6 +67,10 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
+        cell.optionTextField.tintColor = .black
+//        if (cell.optionTextField.text?.isEmpty)! {
+//            cell.optionTextField.backgroundColor = UIColor.flatGray()
+//        }
         bottomTextField = cell.optionTextField
         
         return cell
@@ -107,11 +114,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
 // MARK: - TextField Delegate Methods
 extension CreatePollViewController: UITextFieldDelegate {
     
-    // build up poll in real time?
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        textField.text
-//    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         bottomTextField?.becomeFirstResponder()
         
@@ -119,10 +121,9 @@ extension CreatePollViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-//        textField.backgroundColor = .lightGray
+    
         if textField === bottomTextField, textField.text?.isEmpty == true {
-            
+//            textField.backgroundColor = UIColor.black.darken(byPercentage: 5.0)
             bottomTextField = nil
             addNewCell()
         }
