@@ -35,7 +35,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     var optionCount = 2
     var bottomTextField: UITextField? // keep a reference to the most recently created textfield
     var poll: Poll!
-    
+//    var appState = AppState.createPoll(poll)
     weak var delegate: CreatePollViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -84,11 +84,11 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
         createPollTableView.endUpdates()
     }
-/////////////////////////////////////////////////////////////////////
     
-    @IBAction func sendButtonPressed(_ sender: UIButton) {
+    /////////////////////////////////////////////////////////////////////
+    
+    fileprivate func updatePollState() {
         
-        // Send the poll options and package the message
         for cell in createPollTableView.visibleCells  {
             guard let myCell = cell as? CustomCreatePollCell else {continue}
             
@@ -102,6 +102,11 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
             poll.title = pollTitleTextField.text
         }
         
+    }
+    
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+        updatePollState()
+        // Send the poll options and package the message
         self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
     }

@@ -30,6 +30,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     @IBOutlet weak var votingTableView: UITableView!
     
     @IBOutlet weak var pollTitle: UILabel!
+    
     var poll: Poll? {
         didSet {
             votingTableView?.reloadData()

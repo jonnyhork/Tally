@@ -60,7 +60,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             }
         }
         
-        dump(poll, name: "Sate of Poll in decodeURL", indent: 2)
+        dump(poll, name: "SATE OF POLL IN DecodeURL\n", indent: 2)
         
         return poll
     }
@@ -77,8 +77,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 layout.caption = "What's the Tally?"
                 layout.subcaption = pollTitle ?? "make your choice 👆"
 //                layout.image = UIImage(named: "tally-logo")
-            
-            
             
             let message = MSMessage() //session: session! add this as an argument
                 message.layout = layout
@@ -110,7 +108,7 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
         pollTitle = currentPoll.title
         let url = prepareURL(from: currentPoll)
         prepareMessage(with: url)
-        dump(appState, name: "Sate of Poll in newPollCreated", indent: 2)
+        dump(appState, name: "SATE OF POLL IN NewPollCreated\n", indent: 2)
     }
     
     func sendUpdatedPoll() {
@@ -227,12 +225,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             votingVC.delegate = self
             votingVC.poll = poll
         
-        /*
-        do code to handle adding a vote. 
-        votingVC.voteAction = { [weak self] newPoll in
-            // do thing with poll
-        }
-        */
         return votingVC
     }
     
@@ -252,8 +244,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
     // MARK: - Conversation Handling
 /////////////////////////////////////////////////////////////////////
 
-    
-    
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
