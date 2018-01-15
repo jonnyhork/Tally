@@ -16,6 +16,7 @@
 		F4506F37200432D600E761C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4506F35200432D600E761C4 /* MainInterface.storyboard */; };
 		F4506F39200432D600E761C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4506F38200432D600E761C4 /* Assets.xcassets */; };
 		F4615820200511D90032B231 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461581F200511D90032B231 /* Poll.swift */; };
+		F47F4BEF200D708300CD2BCC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F4BEE200D708300CD2BCC /* CustomTextField.swift */; };
 		F49098A42007ABE400901B18 /* CustomCreatePollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49098A22007ABE400901B18 /* CustomCreatePollCell.swift */; };
 		F49098A52007ABE400901B18 /* CreatePollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49098A32007ABE400901B18 /* CreatePollCell.xib */; };
 		F49098A82007AC1500901B18 /* CustomVotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49098A62007AC1500901B18 /* CustomVotingCell.swift */; };
@@ -66,6 +67,7 @@
 		F4506F3A200432D600E761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F461581E200511D90032B231 /* Tally-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tally-Bridging-Header.h"; sourceTree = "<group>"; };
 		F461581F200511D90032B231 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		F47F4BEE200D708300CD2BCC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F49098A22007ABE400901B18 /* CustomCreatePollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCreatePollCell.swift; sourceTree = "<group>"; };
 		F49098A32007ABE400901B18 /* CreatePollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePollCell.xib; sourceTree = "<group>"; };
 		F49098A62007AC1500901B18 /* CustomVotingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVotingCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				F49098A12007AB6400901B18 /* CustomTableViewCells */,
 				F4506F35200432D600E761C4 /* MainInterface.storyboard */,
+				F47F4BEE200D708300CD2BCC /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				F4615820200511D90032B231 /* Poll.swift in Sources */,
 				F4506F34200432D600E761C4 /* MessagesViewController.swift in Sources */,
 				F49098A82007AC1500901B18 /* CustomVotingCell.swift in Sources */,
+				F47F4BEF200D708300CD2BCC /* CustomTextField.swift in Sources */,
 				F49098A42007ABE400901B18 /* CustomCreatePollCell.swift in Sources */,
 				F4ADF08620053B0C00756037 /* CreatePollViewController.swift in Sources */,
 				F4ADF08820053B7B00756037 /* VotingViewController.swift in Sources */,
