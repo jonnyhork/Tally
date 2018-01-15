@@ -15,7 +15,6 @@ target 'Tally MessagesExtension' do
 
   # Pods for Tally MessagesExtension
 
-	pod 'Charts'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'app-extension'
     
 end

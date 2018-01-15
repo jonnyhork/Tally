@@ -14,13 +14,14 @@ enum AppState {
     case voting(Poll)
     case createPoll(Poll)
     case canCreatePoll(Poll?)
+    case pollCreationInProgress(Poll?)
     case unknown
 }
 
 class MessagesViewController: MSMessagesAppViewController, CompactViewControllerDelegate, CreatePollViewControllerDelegate, votingViewControllerDelegate {
     
 
-//    var poll = Poll()
+
     var session: MSSession?
     var currentVote: String?
     var pollTitle: String? 
@@ -178,6 +179,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
                 controller = instantiateVotingVC(with: poll)
             case .createPoll(let poll):
                 controller = instantiateCreatePollVC(poll: poll)
+            case .pollCreationInProgress(let poll):
+                controller = instantiateCreatePollVC(poll: poll!)
             case .canCreatePoll:
                 controller = instantiateCompactVC()
             case .unknown:
@@ -217,6 +220,8 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             fatalError("Can'instantiate CreatePollViewController")
         }
         
+        // if the appState is .pollCreationInProgess then route to the creatPollVC but populate the TF with the current poll data.
+        
         createPollVC.poll = poll
         createPollVC.delegate = self
         return createPollVC
@@ -229,12 +234,6 @@ class MessagesViewController: MSMessagesAppViewController, CompactViewController
             votingVC.delegate = self
             votingVC.poll = poll
         
-        /*
-        do code to handle adding a vote. 
-        votingVC.voteAction = { [weak self] newPoll in
-            // do thing with poll
-        }
-        */
         return votingVC
     }
     
