@@ -62,12 +62,11 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
         
-//        cell.optionTextField.layer.cornerRadius = 7.0
-        
+        cell.optionTextField.layer.cornerRadius = 7.0
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
-        cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
-        cell.optionTextField.tintColor = .blue
+        cell.optionTextField.placeholder = " Option \(createPollTableView.visibleCells.count + 1)"
+        cell.optionTextField.tintColor = HexColor("3B5998")
         bottomTextField = cell.optionTextField
         
         return cell
