@@ -81,7 +81,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.endUpdates()
     }
     
-    
     /////////////////////////////////////////////////////////////////////
     
     fileprivate func updatePollState() {
