@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Option #" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="swR-Hf-37W" userLabel="Option Text Field">
-                        <rect key="frame" x="5" y="0.0" width="280" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="280" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.83137254900000002" blue="0.87058823529999996" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
