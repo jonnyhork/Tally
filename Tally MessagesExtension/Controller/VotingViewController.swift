@@ -26,12 +26,12 @@ protocol votingViewControllerDelegate: class {
 
 
 class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
+    let cellHeight: CGFloat = 45
 
     @IBOutlet weak var votingTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pollTitle: UILabel!
-    let cellHeight: CGFloat = 70
     
     var poll: Poll? {
         didSet {
