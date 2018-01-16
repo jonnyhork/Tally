@@ -84,8 +84,12 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func addNewCell() {
         createPollTableView.beginUpdates()
         optionCount += 1
-        createPollTableView.frame.size.height = (45.0 * CGFloat(optionCount))
-
+        
+        UIView.animate(withDuration: 0.5) {
+            self.createPollTableView.frame.size.height = (45.0 * CGFloat(self.optionCount))
+            self.createPollTableView.layoutIfNeeded()
+            }
+        
         createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
         createPollTableView.endUpdates()
     }
