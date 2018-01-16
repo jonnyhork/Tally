@@ -43,13 +43,18 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: Set yourself as the delegate and datasource here:
+        
+        self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")]) // "3B5998"
+        
+        // Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self
         pollTitle.text = poll?.title ?? "tap to vote👇"
         
-        //TODO: Register your MessageCell.xib file here:
+        // Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")
+        
+        
     }
     
 
@@ -70,6 +75,8 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         let (key, value) = pollArray[indexPath.row]
 
         cell.configure(option: key, tally: value.count)
+        
+        votingTableView.frame.size.height = (cell.frame.size.height * CGFloat((poll?.list.count)!))
 
         return cell
     }
