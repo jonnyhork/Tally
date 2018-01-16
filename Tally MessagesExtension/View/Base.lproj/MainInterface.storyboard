@@ -86,22 +86,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
-                                <rect key="frame" x="285" y="374" width="63" height="35"/>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Ixn-B6-IVn"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="WjR-Qc-Zyu"/>
-                                    <constraint firstAttribute="width" constant="63" id="ykP-Q0-tAf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="uTu-dJ-Shh" eventType="touchUpInside" id="NKu-hQ-p1n"/>
-                                </connections>
-                            </button>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXl-E8-VZN">
                                 <rect key="frame" x="47" y="112" width="280" height="90"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -147,6 +131,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
+                                <rect key="frame" x="280" y="419" width="63" height="35"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Ixn-B6-IVn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="WjR-Qc-Zyu"/>
+                                    <constraint firstAttribute="width" constant="63" id="ykP-Q0-tAf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="uTu-dJ-Shh" eventType="touchUpInside" id="NKu-hQ-p1n"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -154,14 +154,14 @@
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="47" id="6UR-wS-6Nb"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="16" id="7r8-Ia-G3h"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="sR1-Ic-Tiu" secondAttribute="top" constant="63" id="GWM-vl-7K2"/>
-                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="285" id="MoE-TU-qVM"/>
+                            <constraint firstItem="JIO-hf-oP1" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="280" id="MoE-TU-qVM"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="centerX" secondItem="b5D-AM-PMf" secondAttribute="centerX" id="QqM-0i-eYz"/>
                             <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="Qwh-hM-EmZ" secondAttribute="trailing" constant="16" id="Uks-6I-mPp"/>
                             <constraint firstItem="Qwh-hM-EmZ" firstAttribute="top" secondItem="w3W-jf-t5j" secondAttribute="bottom" constant="8" id="Umv-Lu-JgZ"/>
                             <constraint firstItem="xXl-E8-VZN" firstAttribute="top" secondItem="Qwh-hM-EmZ" secondAttribute="bottom" constant="8" id="YRU-EC-u9x"/>
-                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="JIO-hf-oP1" secondAttribute="trailing" constant="27" id="p8T-Yi-6ur"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="trailing" secondItem="JIO-hf-oP1" secondAttribute="trailing" constant="32" id="p8T-Yi-6ur"/>
                             <constraint firstItem="w3W-jf-t5j" firstAttribute="leading" secondItem="sR1-Ic-Tiu" secondAttribute="leading" constant="32" id="wIG-W5-hHV"/>
-                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="bottom" secondItem="JIO-hf-oP1" secondAttribute="bottom" constant="258" id="y1L-ET-bQ9"/>
+                            <constraint firstItem="sR1-Ic-Tiu" firstAttribute="bottom" secondItem="JIO-hf-oP1" secondAttribute="bottom" constant="213" id="y1L-ET-bQ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sR1-Ic-Tiu"/>
                     </view>
