@@ -87,11 +87,9 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         }
         
         let (key, value) = pollArray[indexPath.row]
-
+        cell.totalVotesLabel.clipsToBounds = true
         cell.configure(option: key, tally: value.count)
         
-        
-
         return cell
     }
     
