@@ -91,12 +91,12 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         let (key, value) = pollArray[indexPath.row]
         
         cell.configure(option: key, tally: value.count)
-        
+//        
         if value.count > highestVote! {
             cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
             highestVote = value.count
         } else {
-            cell.totalVotesLabel.backgroundColor = HexColor("3B5998")
+            cell.totalVotesLabel.backgroundColor = HexColor("F61666")
         }
         
         return cell
