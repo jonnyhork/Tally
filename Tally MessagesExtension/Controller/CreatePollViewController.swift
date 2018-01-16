@@ -57,7 +57,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
-        //        createPollTableView.frame.height = (cell.frame.height * optionCount)
+        
+        createPollTableView.frame.size.height = (cell.frame.height * CGFloat(optionCount))
         
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none

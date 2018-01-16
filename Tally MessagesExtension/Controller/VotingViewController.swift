@@ -67,9 +67,9 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
             pollArray.append((key, value))
         }
         
+        votingTableView.frame.size.height = (cell.frame.size.height * CGFloat((poll?.list.count)!))
+       
         let (key, value) = pollArray[indexPath.row]
-//        cell.votingOptionLabel.text = key
-//        cell.totalVotesLabel.text = String(value.count)
         cell.configure(option: key, tally: value.count)
 
         return cell
@@ -93,6 +93,5 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         self.delegate?.sendUpdatedPoll()
         self.dismiss()
-        print("send button pressed")
     }
 }
