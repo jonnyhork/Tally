@@ -14,27 +14,25 @@ struct Poll {
     var title: String? = nil
     
     func addOption(toPoll optionText: String) -> Poll {
-        // force optiontext lowercase
         var listCopy = list
-        listCopy[optionText.lowercased()] = Set<String>()
+        listCopy[optionText] = Set<String>()
         return Poll(list: listCopy, title: title)
     }
     
     func addVote(to optionText: String, by userName: String) -> Poll {
-        // force optionText loewer case
         var listCopy = list
-        listCopy[optionText.lowercased()]?.insert(userName)
+        listCopy[optionText]?.insert(userName)
         return Poll(list: listCopy, title: title)
     }
     
     func removeVote(from optionText: String, by userName: String) -> Poll {
         var listCopy = list
-        listCopy[optionText.lowercased()]?.remove(userName)
+        listCopy[optionText]?.remove(userName)
         return Poll(list: listCopy, title: title)
     }
     
     func count(votes optionText: String) -> Int {
-        return (list[optionText.lowercased()]?.count) ?? 0
+        return (list[optionText]?.count) ?? 0
     }
     
 }
