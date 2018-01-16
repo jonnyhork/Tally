@@ -86,7 +86,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         optionCount += 1
         
         UIView.animate(withDuration: 0.5) {
-            self.createPollTableView.frame.size.height = (45.0 * CGFloat(self.optionCount))
+            self.createPollTableView.frame.size.height = (self.createPollTableView.rowHeight * CGFloat(self.optionCount))
             self.createPollTableView.layoutIfNeeded()
             }
         
