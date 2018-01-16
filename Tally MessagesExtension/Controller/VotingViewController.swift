@@ -26,8 +26,10 @@ protocol votingViewControllerDelegate: class {
 
 
 class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
+    let cellHeight: CGFloat = 45
 
     @IBOutlet weak var votingTableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pollTitle: UILabel!
     
@@ -43,13 +45,30 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: Set yourself as the delegate and datasource here:
+        
+        self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")]) // "3B5998"
+        
+        // Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self
-        pollTitle.text = poll?.title ?? "tap to vote👇"
+        pollTitle.text = poll?.title ?? "What's The Tally❓"
         
-        //TODO: Register your MessageCell.xib file here:
+        // change shape of tableview
+        votingTableView.layer.cornerRadius = 4.0
+        votingTableView.clipsToBounds = true
+        votingTableView.layer.borderColor = UIColor.gray.cgColor
+        votingTableView.layer.borderWidth = 0.5
+        
+        // Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableViewHeightConstraint.constant = (cellHeight * CGFloat((poll?.list.count)!))
+        view.layoutIfNeeded()
     }
     
 
@@ -70,6 +89,8 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         let (key, value) = pollArray[indexPath.row]
 
         cell.configure(option: key, tally: value.count)
+        
+        
 
         return cell
     }
@@ -87,6 +108,11 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         
         // make a call to add a vote to the option
         self.delegate?.addVoteToPoll(userChoice: option, instance: self)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeight
     }
 
     @IBAction func sendButtonPressed(_ sender: UIButton) {
