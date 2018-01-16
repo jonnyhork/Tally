@@ -31,11 +31,10 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     @IBOutlet weak var createPollTableView: UITableView!
     @IBOutlet weak var pollTitleTextField: UITextField!
     
-    var enteredText = [String]()
     var optionCount = 2
     var bottomTextField: UITextField? // keep a reference to the most recently created textfield
     var poll: Poll!
-//    var appState = AppState.createPoll(poll)
+
     weak var delegate: CreatePollViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -70,10 +69,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
         cell.tag = indexPath.row
-//
-//        let textToUse = enteredText[indexPath.row]
-//        let cell = tableView.cellForRow(at: IndexPath.init(row: 8, section: 0))
-//
+
         cell.optionTextField.setLeftPaddingPoints(10.0)
         cell.optionTextField.tintColor = HexColor("3B5998")
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
@@ -161,16 +157,6 @@ extension CreatePollViewController: UITextFieldDelegate {
         bottomTextField?.becomeFirstResponder()
         
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField){
-        let cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
-
-        if cell.tag >= enteredText.count {
-            enteredText.append(textField.text!)
-        } else {
-             enteredText[cell.tag] = textField.text!
-        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
