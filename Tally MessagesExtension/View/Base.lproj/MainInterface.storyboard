@@ -184,6 +184,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
+                                <rect key="frame" x="277" y="332" width="63" height="35"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Vkp-DM-S0l"/>
+                                    <constraint firstAttribute="width" constant="63" id="cNe-oT-ABj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="6bd-aC-yjb" eventType="touchUpInside" id="zDV-A0-BtP"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to vote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
                                 <rect key="frame" x="72" y="16" width="231" height="27"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
@@ -200,33 +215,18 @@
                                 <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
-                                <rect key="frame" x="277" y="332" width="63" height="35"/>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Vkp-DM-S0l"/>
-                                    <constraint firstAttribute="width" constant="63" id="cNe-oT-ABj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="6bd-aC-yjb" eventType="touchUpInside" id="zDV-A0-BtP"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">
-                                <rect key="frame" x="16" y="109" width="343" height="201"/>
+                                <rect key="frame" x="47" y="109" width="280" height="90"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="201" id="L7N-YM-hfH"/>
+                                    <constraint firstAttribute="height" constant="90" id="L7N-YM-hfH"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="votingCell" id="mO9-Wa-9lD">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mO9-Wa-9lD" id="0bf-WA-sj1">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -236,12 +236,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="O1d-PW-KLV" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" id="AM8-ux-6q2"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" constant="31" id="AM8-ux-6q2"/>
                             <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="RKW-Ic-wUl" secondAttribute="trailing" constant="72" id="CC2-kT-Cpc"/>
                             <constraint firstItem="gG9-0S-dJX" firstAttribute="leading" secondItem="0qT-6P-F3f" secondAttribute="leading" constant="195" id="PA9-UA-dnZ"/>
                             <constraint firstItem="RKW-Ic-wUl" firstAttribute="leading" secondItem="0qT-6P-F3f" secondAttribute="leading" constant="72" id="PzR-kh-0qU"/>
                             <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="109" id="Q29-cG-s0O"/>
-                            <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="O1d-PW-KLV" secondAttribute="bottom" constant="22" id="UUi-6v-s8Q"/>
+                            <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="O1d-PW-KLV" secondAttribute="bottom" constant="133" id="UUi-6v-s8Q"/>
                             <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="66" id="Zil-Ov-wyS"/>
                             <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="HEc-3a-aoO" secondAttribute="trailing" constant="35" id="gru-jR-2i1"/>
                             <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="gG9-0S-dJX" secondAttribute="bottom" constant="8" id="tq3-6h-r6r"/>
@@ -252,6 +252,7 @@
                     </view>
                     <connections>
                         <outlet property="pollTitle" destination="RKW-Ic-wUl" id="Hug-89-7PO"/>
+                        <outlet property="tableViewHeightConstraint" destination="L7N-YM-hfH" id="HlV-e9-FVh"/>
                         <outlet property="votingTableView" destination="O1d-PW-KLV" id="AUm-aU-o7p"/>
                     </connections>
                 </viewController>

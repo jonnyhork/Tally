@@ -28,8 +28,10 @@ protocol votingViewControllerDelegate: class {
 class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var votingTableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pollTitle: UILabel!
+    let cellHeight: CGFloat = 70
     
     var poll: Poll? {
         didSet {
@@ -63,6 +65,12 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableViewHeightConstraint.constant = (cellHeight * CGFloat((poll?.list.count)!))
+        view.layoutIfNeeded()
+    }
+    
 
     //MARK: - TableView DataSource Methods
 /////////////////////////////////////////////////////////////////////
@@ -82,7 +90,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
         cell.configure(option: key, tally: value.count)
         
-        votingTableView.frame.size.height = (cell.frame.size.height * CGFloat((poll?.list.count)!))
+        
 
         return cell
     }
@@ -100,6 +108,11 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         
         // make a call to add a vote to the option
         self.delegate?.addVoteToPoll(userChoice: option, instance: self)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeight
     }
 
     @IBAction func sendButtonPressed(_ sender: UIButton) {
