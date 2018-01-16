@@ -49,7 +49,13 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         // Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self
-        pollTitle.text = poll?.title ?? "tap to vote👇"
+        pollTitle.text = poll?.title ?? "What's The Tally❓"
+        
+        // change shape of tableview
+        votingTableView.layer.cornerRadius = 4.0
+        votingTableView.clipsToBounds = true
+        votingTableView.layer.borderColor = UIColor.gray.cgColor
+        votingTableView.layer.borderWidth = 0.5
         
         // Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")

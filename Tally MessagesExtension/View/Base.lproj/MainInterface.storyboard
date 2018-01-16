@@ -184,8 +184,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to vote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
+                                <rect key="frame" x="72" y="16" width="231" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap to vote👇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG9-0S-dJX">
+                                <rect key="frame" x="195" y="80" width="106" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="35q-vY-gch"/>
+                                    <constraint firstAttribute="width" constant="106" id="bSP-Ha-UR1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-3a-aoO">
-                                <rect key="frame" x="277" y="281" width="63" height="35"/>
+                                <rect key="frame" x="277" y="332" width="63" height="35"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Vkp-DM-S0l"/>
@@ -200,7 +216,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O1d-PW-KLV" userLabel="Voting Table View">
-                                <rect key="frame" x="16" y="58" width="343" height="201"/>
+                                <rect key="frame" x="16" y="109" width="343" height="201"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="201" id="L7N-YM-hfH"/>
@@ -217,22 +233,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to vote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-Ic-wUl">
-                                <rect key="frame" x="72" y="16.5" width="231" height="26.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="O1d-PW-KLV" firstAttribute="leading" secondItem="3ug-OP-DQp" secondAttribute="leadingMargin" id="AM8-ux-6q2"/>
                             <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="RKW-Ic-wUl" secondAttribute="trailing" constant="72" id="CC2-kT-Cpc"/>
+                            <constraint firstItem="gG9-0S-dJX" firstAttribute="leading" secondItem="0qT-6P-F3f" secondAttribute="leading" constant="195" id="PA9-UA-dnZ"/>
                             <constraint firstItem="RKW-Ic-wUl" firstAttribute="leading" secondItem="0qT-6P-F3f" secondAttribute="leading" constant="72" id="PzR-kh-0qU"/>
-                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="58" id="Q29-cG-s0O"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="3ug-OP-DQp" secondAttribute="top" constant="109" id="Q29-cG-s0O"/>
                             <constraint firstItem="HEc-3a-aoO" firstAttribute="top" secondItem="O1d-PW-KLV" secondAttribute="bottom" constant="22" id="UUi-6v-s8Q"/>
-                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="15" id="Zil-Ov-wyS"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="RKW-Ic-wUl" secondAttribute="bottom" constant="66" id="Zil-Ov-wyS"/>
                             <constraint firstItem="0qT-6P-F3f" firstAttribute="trailing" secondItem="HEc-3a-aoO" secondAttribute="trailing" constant="35" id="gru-jR-2i1"/>
+                            <constraint firstItem="O1d-PW-KLV" firstAttribute="top" secondItem="gG9-0S-dJX" secondAttribute="bottom" constant="8" id="tq3-6h-r6r"/>
                             <constraint firstItem="RKW-Ic-wUl" firstAttribute="centerX" secondItem="3ug-OP-DQp" secondAttribute="centerX" id="wBk-3h-jGM"/>
                             <constraint firstItem="O1d-PW-KLV" firstAttribute="centerX" secondItem="RKW-Ic-wUl" secondAttribute="centerX" id="wNH-WD-nBx"/>
                         </constraints>
