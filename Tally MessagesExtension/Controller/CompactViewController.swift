@@ -27,14 +27,16 @@ class CompactViewController: MSMessagesAppViewController {
 
   weak var delegate: CompactViewControllerDelegate?
     
+    @IBOutlet var backgroundView: UIView!
     
     @IBAction func createNewPollButtonPressed(_ sender: UIButton) {
         self.delegate?.didPressCreatePoll()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
         // Do any additional setup after loading the view.
     }
 
@@ -43,15 +45,4 @@ class CompactViewController: MSMessagesAppViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

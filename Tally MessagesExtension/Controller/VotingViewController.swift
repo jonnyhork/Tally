@@ -43,6 +43,8 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")]) // "3B5998"
         //TODO: Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self

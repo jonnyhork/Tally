@@ -40,6 +40,9 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
+        
         sendButton.isHidden = true
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
