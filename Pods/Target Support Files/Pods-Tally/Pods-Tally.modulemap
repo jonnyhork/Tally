@@ -1,6 +1,0 @@
-framework module Pods_Tally {
-  umbrella header "Pods-Tally-umbrella.h"
-
-  export *
-  module * { export * }
-}
