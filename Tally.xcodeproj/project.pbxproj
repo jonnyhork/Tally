@@ -27,6 +27,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F415517A200DCE9700D37BEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4155174200DCE9700D37BEB /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA8C30DBD19C7C7AF5BDC4007F69B878;
+			remoteInfo = ChameleonFramework;
+		};
+		F415517C200DCE9700D37BEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4155174200DCE9700D37BEB /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6F10DCA8E1237319A40183D6F561D422;
+			remoteInfo = "Pods-Tally";
+		};
+		F415517E200DCE9700D37BEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4155174200DCE9700D37BEB /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4433C3596EAE64D4E189866593132CD7;
+			remoteInfo = "Pods-Tally MessagesExtension";
+		};
 		F4506F2D200432D600E761C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4506F1B200432D600E761C4 /* Project object */;
@@ -56,6 +77,7 @@
 		5BC1672DE0177B6E6015CA4F /* Pods-Tally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tally/Pods-Tally.debug.xcconfig"; sourceTree = "<group>"; };
 		CB53CEDA4EDC16FF814C6A47 /* Pods_Tally_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tally_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFC8EAFEEE3156DAEF669E1 /* Pods-Tally MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tally MessagesExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tally MessagesExtension/Pods-Tally MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F4155174200DCE9700D37BEB /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "/Users/jonnyhork/Desktop/galvanize/workspace/q4/Capstone/Tally/Tally MessagesExtension/Pods.xcodeproj"; sourceTree = "<absolute>"; };
 		F4506F21200432D600E761C4 /* Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4506F24200432D600E761C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4506F26200432D600E761C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +132,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F4155175200DCE9700D37BEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F415517B200DCE9700D37BEB /* ChameleonFramework.framework */,
+				F415517D200DCE9700D37BEB /* Pods_Tally.framework */,
+				F415517F200DCE9700D37BEB /* Pods_Tally_MessagesExtension.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F4506F1A200432D600E761C4 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +188,7 @@
 				F461581C20050ECD0032B231 /* View */,
 				F461581D20050ED70032B231 /* Controller */,
 				F4506F38200432D600E761C4 /* Assets.xcassets */,
+				F4155174200DCE9700D37BEB /* Pods.xcodeproj */,
 				F4506F3A200432D600E761C4 /* Info.plist */,
 			);
 			path = "Tally MessagesExtension";
@@ -277,6 +310,12 @@
 			mainGroup = F4506F1A200432D600E761C4;
 			productRefGroup = F4506F22200432D600E761C4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F4155175200DCE9700D37BEB /* Products */;
+					ProjectRef = F4155174200DCE9700D37BEB /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F4506F20200432D600E761C4 /* Tally */,
@@ -284,6 +323,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F415517B200DCE9700D37BEB /* ChameleonFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChameleonFramework.framework;
+			remoteRef = F415517A200DCE9700D37BEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F415517D200DCE9700D37BEB /* Pods_Tally.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Tally.framework;
+			remoteRef = F415517C200DCE9700D37BEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F415517F200DCE9700D37BEB /* Pods_Tally_MessagesExtension.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Tally_MessagesExtension.framework;
+			remoteRef = F415517E200DCE9700D37BEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F4506F1F200432D600E761C4 /* Resources */ = {

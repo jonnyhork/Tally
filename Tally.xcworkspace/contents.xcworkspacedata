@@ -5,6 +5,6 @@
       location = "group:Tally.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:/Users/jonnyhork/Desktop/galvanize/workspace/q4/Capstone/Tally/Tally MessagesExtension/Pods.xcodeproj">
    </FileRef>
 </Workspace>
