@@ -46,7 +46,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         //TODO: Set yourself as the delegate and datasource here:
         votingTableView.delegate = self
         votingTableView.dataSource = self
-        pollTitle.text = poll?.title ?? "make your choice 👇"
+        pollTitle.text = poll?.title ?? "tap to vote👇"
         
         //TODO: Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")
@@ -68,8 +68,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         }
         
         let (key, value) = pollArray[indexPath.row]
-//        cell.votingOptionLabel.text = key
-//        cell.totalVotesLabel.text = String(value.count)
+
         cell.configure(option: key, tally: value.count)
 
         return cell
