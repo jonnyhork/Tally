@@ -84,22 +84,6 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.endUpdates()
     }
     
-    func checkTF() -> Bool {
-        var counter = 0
-        for cell in createPollTableView.visibleCells   {
-            guard let myCell = cell as? CustomCreatePollCell else {continue}
-            
-            if !(myCell.optionTextField.text?.isEmpty)! {
-                counter += 1
-            }
-            
-            if counter >= 2 {
-                return true
-            }
-        }
-        return false
-    }
-    
     /////////////////////////////////////////////////////////////////////
     
     fileprivate func updatePollState() {
@@ -125,6 +109,22 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         self.delegate?.newPollCreated(currentPoll: poll)
         self.dismiss()
     }
+    
+    func displaySendButton() -> Bool {
+        var counter = 0
+        for cell in createPollTableView.visibleCells   {
+            guard let myCell = cell as? CustomCreatePollCell else {continue}
+            
+            if !(myCell.optionTextField.text?.isEmpty)! {
+                counter += 1
+            }
+            
+            if counter >= 2 {
+                return true
+            }
+        }
+        return false
+    }
   
 } // end of class
 
@@ -137,10 +137,9 @@ extension CreatePollViewController: UITextFieldDelegate {
         return true
     }
     
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        sendButton.isHidden = !checkTF()
+        sendButton.isHidden = !displaySendButton()
         
         textField.backgroundColor = UIColor(hexString: "DACED8", withAlpha: 0.1)
         
