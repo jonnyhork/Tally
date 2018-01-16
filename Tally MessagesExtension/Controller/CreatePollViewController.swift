@@ -44,6 +44,12 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         //TODO: Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
+        
+        // change shape of tableview
+        createPollTableView.layer.cornerRadius = 4.0
+        createPollTableView.clipsToBounds = true
+        createPollTableView.layer.borderColor = UIColor.gray.cgColor
+        createPollTableView.layer.borderWidth = 0.5
 
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
@@ -58,13 +64,10 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCreatePollCell", for: indexPath) as! CustomCreatePollCell
         
-        createPollTableView.frame.size.height = (cell.frame.height * CGFloat(optionCount))
-        
         cell.optionTextField.delegate = self
         cell.selectionStyle = .none
         
         cell.optionTextField.setLeftPaddingPoints(10.0)
-        cell.optionTextField.layer.cornerRadius = 7.0
         cell.optionTextField.tintColor = HexColor("3B5998")
         cell.optionTextField.placeholder = "Option \(createPollTableView.visibleCells.count + 1)"
         
@@ -81,6 +84,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     func addNewCell() {
         createPollTableView.beginUpdates()
         optionCount += 1
+        createPollTableView.frame.size.height = (45.0 * CGFloat(optionCount))
+
         createPollTableView.insertRows(at: [IndexPath(row: createPollTableView.visibleCells.count, section: 0)], with: .top)
         createPollTableView.endUpdates()
     }
