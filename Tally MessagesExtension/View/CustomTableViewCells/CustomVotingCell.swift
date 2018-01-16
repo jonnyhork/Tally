@@ -19,17 +19,19 @@ class CustomVotingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         totalVotesLabel.layer.cornerRadius = totalVotesLabel.frame.width/2
+        totalVotesLabel.clipsToBounds = true
+        
     }
 
     func configure(option: String, tally: Int) {
        
-        if numberOfVotes != tally {
+//        if numberOfVotes != tally {
             UIView.animate(withDuration: 0.5, animations: {
-                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             }, completion: { _ in
                 self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
-        }
+//        }
         
         self.option = option
         self.numberOfVotes = tally

@@ -79,6 +79,8 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
+       
+        var highestVote: Int? = 0
         
         var pollArray : [(String, Set<String>)] = []
         
@@ -87,8 +89,15 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         }
         
         let (key, value) = pollArray[indexPath.row]
-        cell.totalVotesLabel.clipsToBounds = true
+        
         cell.configure(option: key, tally: value.count)
+        
+        if value.count > highestVote! {
+            cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
+            highestVote = value.count
+        } else {
+            cell.totalVotesLabel.backgroundColor = HexColor("3B5998")
+        }
         
         return cell
     }
