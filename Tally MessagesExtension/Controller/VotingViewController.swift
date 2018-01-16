@@ -92,6 +92,5 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         self.delegate?.sendUpdatedPoll()
         self.dismiss()
-        print("send button pressed")
     }
 }
