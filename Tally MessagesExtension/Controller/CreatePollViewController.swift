@@ -52,6 +52,12 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.clipsToBounds = true
         createPollTableView.layer.borderColor = UIColor.gray.cgColor
         createPollTableView.layer.borderWidth = 0.5
+        
+        // Add Shadow of the TableView
+        createPollTableView.layer.shadowColor = UIColor.flatBlueColorDark().cgColor
+        createPollTableView.layer.shadowOpacity = 1
+        createPollTableView.layer.shadowOffset = CGSize.zero
+        createPollTableView.layer.shadowRadius = 10
 
         //TODO: Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
