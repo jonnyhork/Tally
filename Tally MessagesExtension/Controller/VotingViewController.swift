@@ -11,8 +11,6 @@
     - it needs to know what the status of the current poll is
         - Choices
         - Current number of votes
- 
- do I need to pass this VC the current state of poll?
  */
 
 import UIKit
@@ -71,7 +69,6 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         // Register your MessageCell.xib file here:
         votingTableView.register(UINib(nibName: "VotingCell", bundle: nil), forCellReuseIdentifier: "CustomVotingCell")
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +77,17 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         view.layoutIfNeeded()
     }
     
-
+    func highestNumberOfVotes( _ array :[(String, Set<String>)]) -> Int {
+        var num:Int = 0
+       
+        for element in array {
+            if element.1.count > num {
+                num = element.1.count
+            }
+        }
+        return num
+    }
+    
     //MARK: - TableView DataSource Methods
 /////////////////////////////////////////////////////////////////////
 
@@ -95,20 +102,22 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
             pollArray.append((key, value))
         }
         
+        biggestVote = highestNumberOfVotes(pollArray)
+        
         let (key, value) = pollArray[indexPath.row]
         
         cell.configure(option: key, tally: value.count)
       
         // need to send the biggest vote along with the poll in order to not reset biggestVote
-//        for option in (poll?.list)! {
+
             if value.count != 0, value.count >= biggestVote {
                 print("YES!")
-                cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
-                biggestVote = value.count
+                cell.totalVotesLabel.backgroundColor = HexColor("2ecc71") // green
+
             } else {
-                cell.totalVotesLabel.backgroundColor = HexColor("F61666")
+                cell.totalVotesLabel.backgroundColor = HexColor("F61666") // red
             }
-//        }
+
         
         return cell
     }
@@ -127,7 +136,6 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         // make a call to add a vote to the option
         self.delegate?.addVoteToPoll(userChoice: option, instance: self)
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
