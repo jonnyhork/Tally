@@ -39,11 +39,17 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendButton.layer.cornerRadius = 4.0
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
         
+        // Style the SendButton
         sendButton.isHidden = true
-        //TODO: Set yourself as the delegate and datasource here:
+        sendButton.layer.cornerRadius = 4.0
+        sendButton.layer.shadowColor = UIColor.flatBlueColorDark().cgColor
+        sendButton.layer.shadowOpacity = 1
+        sendButton.layer.shadowOffset = CGSize.init(width: 5.0, height: 5.0)
+        sendButton.layer.shadowRadius = 10
+        
+        // Set yourself as the delegate and datasource here:
         createPollTableView.delegate = self
         createPollTableView.dataSource = self
     
@@ -52,8 +58,8 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
         createPollTableView.clipsToBounds = true
         createPollTableView.layer.borderColor = UIColor.gray.cgColor
         createPollTableView.layer.borderWidth = 0.5
-
-        //TODO: Register your MessageCell.xib file here:
+        
+        // Register your MessageCell.xib file here:
         createPollTableView.register(UINib(nibName: "CreatePollCell", bundle: nil), forCellReuseIdentifier: "CustomCreatePollCell")
         
     }
