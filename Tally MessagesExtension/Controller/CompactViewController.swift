@@ -36,6 +36,10 @@ class CompactViewController: MSMessagesAppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sendButton.layer.cornerRadius = 4.0
+        sendButton.layer.shadowColor = UIColor.flatBlueColorDark().cgColor
+        sendButton.layer.shadowOpacity = 1
+        sendButton.layer.shadowOffset = CGSize.init(width: 10.0, height: 10.0)
+        sendButton.layer.shadowRadius = 10
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
     }
 
