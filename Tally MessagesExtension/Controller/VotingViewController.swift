@@ -32,6 +32,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pollTitle: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     var poll: Poll? {
         didSet {
@@ -45,7 +46,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sendButton.layer.cornerRadius = 4.0
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")]) // "3B5998"
         
         // Set yourself as the delegate and datasource here:

@@ -53,11 +53,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-mr-T9f">
-                                <rect key="frame" x="117" y="86" width="141" height="35"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tally-logo-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ru2-2u-JWU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="ehC-4I-ffD"/>
+                                    <constraint firstAttribute="height" constant="236" id="vwh-ze-SP9"/>
+                                </constraints>
+                            </imageView>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-mr-T9f">
+                                <rect key="frame" x="142" y="120" width="117" height="35"/>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                <state key="normal" title="Create a Poll!">
+                                <state key="normal" title="New Tally">
                                     <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -67,16 +74,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vA5-mr-T9f" firstAttribute="top" secondItem="Kbv-ke-qeN" secondAttribute="top" constant="66" id="559-Ei-ZXf"/>
-                            <constraint firstItem="vA5-mr-T9f" firstAttribute="leading" secondItem="Kbv-ke-qeN" secondAttribute="leading" constant="117" id="hb4-lr-gw1"/>
-                            <constraint firstItem="vA5-mr-T9f" firstAttribute="centerX" secondItem="gwu-JE-0A8" secondAttribute="centerX" id="zQz-pl-hjw"/>
+                            <constraint firstItem="Ru2-2u-JWU" firstAttribute="trailing" secondItem="Kbv-ke-qeN" secondAttribute="trailing" id="0vR-HX-Prf"/>
+                            <constraint firstItem="Ru2-2u-JWU" firstAttribute="top" secondItem="gwu-JE-0A8" secondAttribute="top" id="3MU-LW-WJ2"/>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="top" secondItem="Kbv-ke-qeN" secondAttribute="top" constant="100" id="559-Ei-ZXf"/>
+                            <constraint firstItem="Ru2-2u-JWU" firstAttribute="leading" secondItem="Kbv-ke-qeN" secondAttribute="leading" id="Lu5-2K-qE7"/>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="leading" secondItem="Kbv-ke-qeN" secondAttribute="leading" constant="142" id="hb4-lr-gw1"/>
+                            <constraint firstItem="vA5-mr-T9f" firstAttribute="centerX" secondItem="gwu-JE-0A8" secondAttribute="centerX" constant="13" id="zQz-pl-hjw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kbv-ke-qeN"/>
                     </view>
+                    <connections>
+                        <outlet property="sendButton" destination="vA5-mr-T9f" id="5tF-Qo-MXU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cam-jn-A4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="195"/>
+            <point key="canvasLocation" x="773.60000000000002" y="194.75262368815595"/>
         </scene>
         <!--Create Poll View Controller-->
         <scene sceneID="6Xo-aE-2uU">
@@ -119,7 +132,7 @@
                                 <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a Title..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-jf-t5j">
+                            <textField opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a Title..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-jf-t5j">
                                 <rect key="frame" x="32" y="45" width="311" height="30"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,7 +141,7 @@
                                     <constraint firstAttribute="width" constant="311" id="zf9-RT-i3c"/>
                                 </constraints>
                                 <color key="textColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIO-hf-oP1">
@@ -252,6 +265,7 @@
                     </view>
                     <connections>
                         <outlet property="pollTitle" destination="RKW-Ic-wUl" id="Hug-89-7PO"/>
+                        <outlet property="sendButton" destination="HEc-3a-aoO" id="nAq-wI-jAY"/>
                         <outlet property="tableViewHeightConstraint" destination="L7N-YM-hfH" id="HlV-e9-FVh"/>
                         <outlet property="votingTableView" destination="O1d-PW-KLV" id="AUm-aU-o7p"/>
                     </connections>
@@ -261,4 +275,7 @@
             <point key="canvasLocation" x="2317.5999999999999" y="193.85307346326837"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tally-logo-bg" width="309" height="309"/>
+    </resources>
 </document>

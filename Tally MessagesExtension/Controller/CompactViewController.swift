@@ -27,6 +27,7 @@ class CompactViewController: MSMessagesAppViewController {
 
   weak var delegate: CompactViewControllerDelegate?
     
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBAction func createNewPollButtonPressed(_ sender: UIButton) {
         self.delegate?.didPressCreatePoll()
@@ -34,7 +35,7 @@ class CompactViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sendButton.layer.cornerRadius = 4.0
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
     }
 
