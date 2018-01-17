@@ -39,7 +39,7 @@ class CreatePollViewController: MSMessagesAppViewController, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sendButton.layer.cornerRadius = 4.0
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")])
         
         sendButton.isHidden = true

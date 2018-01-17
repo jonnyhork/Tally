@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,29 +26,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhs-zB-F9E" userLabel="Option Label">
-                        <rect key="frame" x="0.0" y="12.5" width="247" height="20"/>
+                        <rect key="frame" x="0.0" y="9.5" width="225" height="26.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="247" id="FfX-Cq-xUr"/>
+                            <constraint firstAttribute="width" constant="225" id="FfX-Cq-xUr"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                         <color key="textColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-uS-Zca" userLabel="Vote Count Label">
-                        <rect key="frame" x="262" y="11" width="12" height="22.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" red="0.96470588239999999" green="0.086274509799999996" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="242" y="8" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.086274509799999996" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4Fo-mI-8Xx"/>
+                            <constraint firstAttribute="width" constant="30" id="QzV-93-QtN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                        <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
-                        <color key="shadowColor" red="0.87843137250000003" green="0.83137254900000002" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <size key="shadowOffset" width="1" height="1"/>
+                        <color key="shadowColor" red="0.23137254900000001" green="0.23529411759999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <size key="shadowOffset" width="2" height="1"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-no-BMZ">
+                        <rect key="frame" x="280" y="7" width="40" height="32"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="1aW-uS-Zca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1y0-K8-I4R"/>
+                    <constraint firstItem="1aW-uS-Zca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="0.75" id="1y0-K8-I4R"/>
                     <constraint firstItem="dhs-zB-F9E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8dM-DP-9Pt"/>
                     <constraint firstItem="dhs-zB-F9E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9MI-IB-aYn"/>
-                    <constraint firstItem="1aW-uS-Zca" firstAttribute="leading" secondItem="dhs-zB-F9E" secondAttribute="trailing" constant="15" id="KZb-Ze-Bf8"/>
+                    <constraint firstItem="1aW-uS-Zca" firstAttribute="leading" secondItem="dhs-zB-F9E" secondAttribute="trailing" constant="17" id="KZb-Ze-Bf8"/>
+                    <constraint firstItem="oCK-no-BMZ" firstAttribute="leading" secondItem="1aW-uS-Zca" secondAttribute="trailing" constant="8" id="Mym-dV-dXN"/>
+                    <constraint firstAttribute="trailing" secondItem="oCK-no-BMZ" secondAttribute="trailing" id="TPq-gO-GVb"/>
+                    <constraint firstItem="oCK-no-BMZ" firstAttribute="centerY" secondItem="1aW-uS-Zca" secondAttribute="centerY" id="f1x-cy-wOn"/>
+                    <constraint firstItem="oCK-no-BMZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="nPW-gt-lGh"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -56,7 +69,7 @@
                 <outlet property="totalVotesLabel" destination="1aW-uS-Zca" id="Eil-ca-BuR"/>
                 <outlet property="votingOptionLabel" destination="dhs-zB-F9E" id="FxN-3o-LRP"/>
             </connections>
-            <point key="canvasLocation" x="16" y="19"/>
+            <point key="canvasLocation" x="16" y="18.5"/>
         </tableViewCell>
     </objects>
 </document>

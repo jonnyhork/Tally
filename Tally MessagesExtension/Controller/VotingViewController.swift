@@ -32,6 +32,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pollTitle: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     var poll: Poll? {
         didSet {
@@ -45,7 +46,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sendButton.layer.cornerRadius = 4.0
         self.view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: self.view.frame, colors: [HexColor("FAFAFA"), HexColor("48C0D3")]) // "3B5998"
         
         // Set yourself as the delegate and datasource here:
@@ -79,6 +80,8 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
+       
+        var highestVote: Int? = 0
         
         var pollArray : [(String, Set<String>)] = []
         
@@ -87,11 +90,16 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         }
         
         let (key, value) = pollArray[indexPath.row]
-
+        
         cell.configure(option: key, tally: value.count)
+//        
+        if value.count > highestVote! {
+            cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
+            highestVote = value.count
+        } else {
+            cell.totalVotesLabel.backgroundColor = HexColor("F61666")
+        }
         
-        
-
         return cell
     }
     

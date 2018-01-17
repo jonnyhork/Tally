@@ -14,21 +14,24 @@ class CustomVotingCell: UITableViewCell {
     private(set) var numberOfVotes: Int?
     
     @IBOutlet private weak var votingOptionLabel: UILabel!
-    @IBOutlet private weak var totalVotesLabel: UILabel!
+    @IBOutlet weak var totalVotesLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        totalVotesLabel.layer.cornerRadius = totalVotesLabel.frame.width/2
+        totalVotesLabel.clipsToBounds = true
+        
     }
 
     func configure(option: String, tally: Int) {
-        if numberOfVotes != tally {
+       
+//        if numberOfVotes != tally {
             UIView.animate(withDuration: 0.5, animations: {
-                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             }, completion: { _ in
                 self.totalVotesLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
-        }
+//        }
         
         self.option = option
         self.numberOfVotes = tally
