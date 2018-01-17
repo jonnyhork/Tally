@@ -47,9 +47,7 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Style the SendButton
-        sendButton.layer.cornerRadius = 4.0
         sendButton.layer.cornerRadius = 4.0
         sendButton.layer.shadowColor = UIColor.flatBlueColorDark().cgColor
         sendButton.layer.shadowOpacity = 1
