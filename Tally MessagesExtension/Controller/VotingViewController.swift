@@ -27,6 +27,7 @@ protocol votingViewControllerDelegate: class {
 
 class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
     let cellHeight: CGFloat = 45
+    var biggestVote: Int = 0
 
     @IBOutlet weak var votingTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
@@ -88,8 +89,6 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomVotingCell", for: indexPath) as! CustomVotingCell
        
-        var highestVote: Int? = 0
-        
         var pollArray : [(String, Set<String>)] = []
         
         for (key, value) in (poll?.list)! {
@@ -99,13 +98,17 @@ class VotingViewController: MSMessagesAppViewController, UITableViewDelegate, UI
         let (key, value) = pollArray[indexPath.row]
         
         cell.configure(option: key, tally: value.count)
-//        
-        if value.count > highestVote! {
-            cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
-            highestVote = value.count
-        } else {
-            cell.totalVotesLabel.backgroundColor = HexColor("F61666")
-        }
+      
+        // need to send the biggest vote along with the poll in order to not reset biggestVote
+//        for option in (poll?.list)! {
+            if value.count != 0, value.count >= biggestVote {
+                print("YES!")
+                cell.totalVotesLabel.backgroundColor = HexColor("2ecc71")
+                biggestVote = value.count
+            } else {
+                cell.totalVotesLabel.backgroundColor = HexColor("F61666")
+            }
+//        }
         
         return cell
     }
